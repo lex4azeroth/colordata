@@ -20,6 +20,8 @@ public class Report implements Serializable {
 	private String forun;
 	private String authorName;
 	private String title;
+	private String forumUrl;
+	
 	public String getRank() {
 		return rank;
 	}
@@ -85,6 +87,12 @@ public class Report implements Serializable {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getForumUrl() {
+		return forumUrl;
+	}
+	public void setForumUrl(String forumUrl) {
+		this.forumUrl = forumUrl;
 	}
 
 }

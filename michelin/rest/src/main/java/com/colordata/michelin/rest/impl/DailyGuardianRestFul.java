@@ -37,7 +37,7 @@ public class DailyGuardianRestFul {
 			@PathParam("end") String end) {
 		List<Report> reports = new ArrayList<Report>();
 		Connection conn = SqlServerConnectionService.getConn();
-		
+		System.out.println("Report from " + start + " to " + end);
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianReport(?,?) }");
 			c.setDate(1, Date.valueOf(start));
@@ -50,7 +50,15 @@ public class DailyGuardianRestFul {
 				report.setRank(rs.getString("Rank"));
 				report.setIssueCategory(rs.getString("Issue Category"));
 				report.setIssue(rs.getString("Issue"));
-//				report.setProductInvovled(rs.getString(columnLabel));
+				report.setProductInvovled(rs.getString("Product invovled"));
+				report.setGrade(rs.getString("Grade"));
+				report.setPvReplies(rs.getString("PV/Replies"));
+				report.setPostDate(rs.getString("Post Date"));
+				report.setSite(rs.getString("Site"));
+				report.setForun(rs.getString("Forum"));
+				report.setAuthorName(rs.getString("AuthorName"));
+				report.setTitle(rs.getString("Title"));
+				report.setForumUrl(rs.getString("URL"));
 				reports.add(report);
 			}
 		} catch (SQLException ex) {

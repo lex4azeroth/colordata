@@ -1,8 +1,16 @@
+function convertDate(stringTime) {
+	var dateTime = new Date(stringTime);
+	var year = dateTime.getFullYear();
+	var month = dateTime.getMonth();
+	month = month + 1;
+	var day = dateTime.getDate();
+	var newDateTime = year + "-" + month + "-" + day;
+	return newDateTime;
+}
+
 function dataRangePicker() {
 	//Date range picker
 
-	//  $('.reservationtime').daterangepicker();
-	$('#reservationtime').daterangepicker();
 	$('#daterange-btn').daterangepicker({
 			ranges: {
 				'Today': [moment(), moment()],
@@ -19,6 +27,18 @@ function dataRangePicker() {
 			$('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
 		}
 	);
+
+	$('#daterange-btn span').html(moment().subtract(5, "day").format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'))
+	$("#daterange-btn").on('apply.daterangepicker', function() {
+		//当选择时间后，出发dt的重新加载数据的方法
+		//         table.ajax.reload();
+		//         //获取dt请求参数
+		//         var args = table.ajax.params();
+		console.log($("#daterange-btn span").html());
+		var dateRange = $("#daterange-btn span").html();
+
+		loadDailyGuardian();
+	});
 }
 
 function loadIWOM() {
@@ -829,13 +849,87 @@ function loadIWOM() {
 	});
 };
 
-function loadDailyGuardian() {
+var reportTable;
+function initReportTable() {
+$(document).ready(function() {	
+	reportTable = $('#reporttable').DataTable({
+//		columnDefs: [{
+//			orderable: false,
+//			targets: 0
+//		}, {
+//			searchable: false,
+//			targets: 0
+//		}],
+//		sDom: '<"top"iflp<"clear">>rt<"bottom"ilp<"clear">>'
+//		"bRetrieve": true,
+		sDom: '<"top"f<"clear">>rt<"bottom"l<"clear">>',
+//		retrieve: true,
+		aaSorting: [
+			[0, 'asc']
+		],
+		data: tableData,
+		columns: [
+			{
+				data: 'rank'
+			}, {
+				data: 'issueCategory', 
+				width: '50'
+			}, {
+				data: 'issue'
+			}, {
+				data: 'productInvovled'
+			}, {
+				data: 'grade'
+			}, {
+				data: 'pvReplies'
+			}, {
+				data: 'postDate', 
+				width: '100'
+			}, {
+				data: 'site'
+			}, {
+				data: 'forun'
+			}, {
+				data: 'authorName'
+			}, {
+				data: 'title', 
+				render: function (data, type, row) {
+					return '<a href=' + row.forumUrl  + '>' + data + '</a>';
+				}
+			}
+		]
+	});
+	});
+}
+function loadDailyGuardianPage() {
 	$("#container").load("pages/DailyGuardian.html #dailyguardian", null, function() {
-		var data = {
-			"start": "2016-05-12",
-			"end": "2016-05-18"
-		};
+		dataRangePicker();
+//		if (reportTable == null) {
+//			initReportTable();
+//		}
+		
+		loadDailyGuardian();
+	});
+}
 
+function loadDailyGuardian() {
+//	$("#container").load("pages/DailyGuardian.html #dailyguardian", null, function() {
+		//		dataRangePicker();
+
+		var dateRange = $("#daterange-btn span").html();
+		var indexOfSpiliter = dateRange.indexOf('-');
+		var startDate = dateRange.substring(0, indexOfSpiliter - 1);
+		var endDate = dateRange.substring(indexOfSpiliter + 2);
+		var convertedStart = convertDate(startDate);
+		var convertedEnd = convertDate(endDate);
+		//		var queryDate = {
+		//			"start" : "2016-05-12", 
+		//			"end"	: "2016-05-18"
+		//		};
+		var data = {
+			"start": convertedStart,
+			"end": convertedEnd
+		};
 		// weekly issue trend
 		init_dg_weeklyissuetrend(data);
 
@@ -850,7 +944,10 @@ function loadDailyGuardian() {
 
 		// issue break down
 		init_dg_issuebreakdown(data);
-	});
+
+		// report
+		init_dg_report(data);
+//	});
 };
 
 function loadDailyGuardian_tyreplus() {

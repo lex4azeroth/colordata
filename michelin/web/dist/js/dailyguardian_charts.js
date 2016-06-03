@@ -1,43 +1,71 @@
 var baseURL = "michelinrest/dailyguardian/";
-//function init_dg_report(data) {
-//	var subURL = baseURL + "report/";
-//	
-//	$('#reporttable').DataTable({
-//	    columnDefs: [
-//	       { orderable: false, targets: 0 }, 
-//	       { searchable: false, targets: 0 }
-//	    ], 
-//	    
-//	    aaSorting: [[1, 'asc']],
-//		
-//		ajax: {
-//			url: subURL + data.start + "/" + data.end,
-//			dataSrc: ''
-//		},
-//		columns: [
-////				{ 
-////				    data: 'id', 
-////				    width: '50',  
-////				    render: function (data, type, row) {
-////				        return '<input name=\'kolCheck\' type=\'checkbox\' value=\'' + data + '\'></input>';
-////				    
-////				    }
-////				},
-//				{ data: 'rank' },
-//				{ data: 'issueCategory' },
-//				{ data: 'issue' },
-//				{ data: 'productInvovled' }, 
-//				{ data: 'grade' },
-//				{ data: 'pvReplies' },
-//				{ data: 'postDate' },
-//				{ data: 'site' },
-//				{ data: 'forun' },
-//				{ data: 'authorName' }, 
-//				{ data: 'title' }
-//			]
-//		});
-//  };
-//}
+var reportTable;
+
+function initReporTable(tableData) {
+	reportTable = $('#reporttable').DataTable({
+//		columnDefs: [{
+//			orderable: false,
+//			targets: 0
+//		}, {
+//			searchable: false,
+//			targets: 0
+//		}],
+//		sDom: '<"top"iflp<"clear">>rt<"bottom"ilp<"clear">>'
+		"bDestroy": true,
+		sDom: '<"top"f<"clear">>rt<"bottom"ip<"clear">>',
+		aaSorting: [
+			[0, 'asc']
+		],
+		data: tableData,
+		columns: [
+			{
+				data: 'rank'
+			}, {
+				data: 'issueCategory', 
+				width: '50'
+			}, {
+				data: 'issue'
+			}, {
+				data: 'productInvovled'
+			}, {
+				data: 'grade'
+			}, {
+				data: 'pvReplies'
+			}, {
+				data: 'postDate', 
+				width: '100'
+			}, {
+				data: 'site'
+			}, {
+				data: 'forun'
+			}, {
+				data: 'authorName'
+			}, {
+				data: 'title', 
+				render: function (data, type, row) {
+					return '<a href=' + row.forumUrl  + '>' + data + '</a>';
+				}
+			}
+		]
+	});
+}
+
+function init_dg_report(data) {
+	var subURL = baseURL + "report/";
+	var tableData = [];
+	
+	$.ajax({
+		type: "GET",
+		url: subURL + data.start + "/" + data.end,
+		async: false,
+		dataType: "json",
+		success: function(returnValue) {
+			tableData = returnValue;
+		}
+	});
+	
+	initReporTable(tableData);
+}
 
 function init_dg_issuebreakdown(data) {
 	var subURL = baseURL + "issuebreakdown/";
@@ -55,7 +83,7 @@ function init_dg_issuebreakdown(data) {
 			pairs = returnValue.pair;
 		}
 	});
-	
+
 	var myChart5 = echarts.init(document.getElementById('echart_issuebreakdown'), 'macarons');
 	option5 = {
 		title: [{
