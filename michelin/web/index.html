@@ -49,23 +49,23 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 </head>
-<body class="hold-transition skin-blue sidebar-mini" onpageshow="loadIWOM()">
+<body class="hold-transition skin-blue sidebar-mini" onpageshow="loadDailyGuardianPage()">
 <div class="wrapper">
 
   <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo">
+    <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>C</b>D</span>
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg"><b>Colour</b>Data</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+      <!--<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
-      </a>
+      </a>-->
 
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
@@ -340,22 +340,22 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li id="michelinTree" class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Michelin Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" onclick="loadDailyGuardianPage()"><i class="fa fa-circle-o"></i> Daily Guardian </a></li>
-            <li class="active"><a id="first" href="#" onclick="loadIWOM()"><i class="fa fa-circle-o"></i> IWORM Dashboard </a></li>
+            <li id="loadDG"><a href="#" onclick="loadDailyGuardianPage()"><i class="fa fa-circle-o"></i> Daily Guardian </a></li>
+            <li id="loadIWOM"><a href="#" onclick="loadIWOM()"><i class="fa fa-circle-o"></i> IWORM Dashboard </a></li>
           </ul>
         </li>
-        <li class="active treeview">
+        <li id="tyreplusTree" class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Tyreplus Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#" onclick="loadDailyGuardian_tyreplus()"><i class="fa fa-circle-o"></i> Daily Guardian </a></li>
-            <li class="active"><a id="first" href="#" onclick="loadIWOM_tyreplus()"><i class="fa fa-circle-o"></i> IWORM Dashboard </a></li>
+            <li id="loadDG_T"><a href="#" onclick="loadDailyGuardian_tyreplus()"><i class="fa fa-circle-o"></i> Daily Guardian </a></li>
+            <li id="loadIWOM_T"><a href="#" onclick="loadIWOM_tyreplus()"><i class="fa fa-circle-o"></i> IWORM Dashboard </a></li>
           </ul>
         </li>
       </ul>

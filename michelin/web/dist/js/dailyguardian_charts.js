@@ -10,9 +10,11 @@ function initReporTable(tableData) {
 //			searchable: false,
 //			targets: 0
 //		}],
-//		sDom: '<"top"iflp<"clear">>rt<"bottom"ilp<"clear">>'
 		"bDestroy": true,
-		sDom: '<"top"f<"clear">>rt<"bottom"ip<"clear">>',
+//		sDom: '<"top"f<"clear">>rt<"bottom"ip<"clear">>',
+		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#mytool'>>" +
+                    "t" +
+                    "<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
@@ -46,7 +48,12 @@ function initReporTable(tableData) {
 					return '<a href=' + row.forumUrl  + '>' + data + '</a>';
 				}
 			}
-		]
+		], 
+		initComplete: function () {
+//          $("#mytool").append('<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">添加</button>');
+			$("#mytool").append('<a data-toggle="modal" data-target="#myModal">Download</a>');
+//          $("#datainit").on("click", initData);
+        }
 	});
 }
 

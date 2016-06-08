@@ -45,6 +45,15 @@ function loadIWOM() {
 	$("#container").load("pages/iWOM.html #iwom", null, function() {
 		// echart K1BuzzNSRTopic
 
+		// add or remove css for link, TODO, need a better method....
+//		$("#tyreplusTree").removeClass("active treeview");
+//		$("#michelinTree").addClass("active treeview");
+		
+		$("#loadDG").removeClass("active");
+		$("#loadIWOM").addClass("active");
+		$("#loadDG_T").removeClass("active");
+		$("#loadIWOM_T").removeClass("active");
+		
 		var axisData = [
 			"1-May", "2-May", "3-May", "4-May", "5-May", "6-May",
 			"-May", "8-May", "9-May", "10-May", "11-May", "12-May",
@@ -903,10 +912,17 @@ $(document).ready(function() {
 }
 function loadDailyGuardianPage() {
 	$("#container").load("pages/DailyGuardian.html #dailyguardian", null, function() {
+		// Init data range picker plugin
 		dataRangePicker();
-//		if (reportTable == null) {
-//			initReportTable();
-//		}
+		
+		// add or remove css for link, TODO, need a better method....
+//		$("#tyreplusTree").removeClass("active treeview");
+//		$("#michelinTree").addClass("active treeview");
+		
+		$("#loadDG").addClass("active");
+		$("#loadIWOM").removeClass("active");
+		$("#loadDG_T").removeClass("active");
+		$("#loadIWOM_T").removeClass("active");
 		
 		loadDailyGuardian();
 	});
@@ -952,6 +968,14 @@ function loadDailyGuardian() {
 
 function loadDailyGuardian_tyreplus() {
 	$("#container").load("pages/DailyGuardian_TyrePlus.html #dailyguardian_tyreplus", null, function() {
+		// add or remove css for link, TODO, need a better method....
+//		$("#tyreplusTree").addClass("active treeview");
+//		$("#michelinTree").removeClass("active treeview");
+		
+		$("#loadDG").removeClass("active");
+		$("#loadIWOM").removeClass("active");
+		$("#loadDG_T").addClass("active");
+		$("#loadIWOM_T").removeClass("active");
 		var data = {
 			"start": "2016-05-12",
 			"end": "2016-05-18"
@@ -963,7 +987,14 @@ function loadDailyGuardian_tyreplus() {
 function loadIWOM_tyreplus() {
 	$("#container").load("pages/IWOM_TyrePlus.html #iwom_tyreplus", null, function() {
 		// echart K1BuzzNSRTopic
-
+		// add or remove css for link, TODO, need a better method....
+//		$("#tyreplusTree").addClass("active treeview");
+//		$("#michelinTree").removeClass("active treeview");
+		
+		$("#loadDG").removeClass("active");
+		$("#loadIWOM").removeClass("active");
+		$("#loadDG_T").removeClass("active");
+		$("#loadIWOM_T").addClass("active");
 		var axisData = [
 			"1-May", "2-May", "3-May", "4-May", "5-May", "6-May",
 			"-May", "8-May", "9-May", "10-May", "11-May", "12-May",
