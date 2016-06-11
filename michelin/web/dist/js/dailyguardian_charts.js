@@ -10,6 +10,7 @@ function initReporTable(tableData) {
 //			searchable: false,
 //			targets: 0
 //		}],
+//		sDom: '<"top"iflp<"clear">>rt<"bottom"ilp<"clear">>'
 		"bDestroy": true,
 //		sDom: '<"top"f<"clear">>rt<"bottom"ip<"clear">>',
 		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#mytool'>>" +
@@ -49,11 +50,9 @@ function initReporTable(tableData) {
 				}
 			}
 		], 
-		initComplete: function () {
-//          $("#mytool").append('<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">添加</button>');
-			$("#mytool").append('<a data-toggle="modal" data-target="#myModal">Download</a>');
-//          $("#datainit").on("click", initData);
-        }
+		initComplete: function() {
+			$("#mytool").append('<a>Download</a>');
+		}
 	});
 }
 
@@ -411,12 +410,6 @@ function init_dg_weeklyissuetrend(data) {
 		title: [{
 			text: '',
 			subtext: 'Unit: Comment(Post)'
-		}, {
-			text: '\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n                ',
-			borderColor: '#933',
-			borderWidth: 1,
-			left: '83%',
-			top: '10%'
 		}],
 		tooltip: {
 			trigger: 'axis',

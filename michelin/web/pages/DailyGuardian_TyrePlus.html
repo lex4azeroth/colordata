@@ -1,264 +1,371 @@
-﻿  <div class="full-content-wrapper" id="dailyguardian_tyreplus">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h2>
-        Michelin Daily Guardian
+<!-- Content Wrapper. Contains page content -->
+<div class="full-content-wrapper" id="dailyguardian_tyreplus">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h2>
+        Tyreplus Daily Guardian
         <small></small>
       </h2>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Daily Guardian</li>
-      </ol>
-    </section>
-    
-    <section class="full-content-header">
-     
-        <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">Global Filter</h3>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Issue Grade</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  
-                </select>
-              </div>
-              <!-- /.form-group -->
-          <div class="form-group">
-                <label>Channel</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">BBS</option>
-                  <option>Weibo</option>
-                  <option>Wechat</option>
-                  <option>ComplantSites</option>
-                  <option>News</option>
-                  <option>VideoSites</option>
-                </select>
-              </div>
-              <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-            <div class="form-group">
-                <label>Issue Catrgory</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Restaurant</option>
-                  <option>Product</option>
-                  
-                </select>
-              </div>
-              <!-- /.form-group -->
-          
-          <!--daterange-->
-          
-          <div class="form-group">
-               
-                <label>Date range button:</label>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li class="active">Daily Guardian</li>
+		</ol>
+	</section>
 
-                <div class="input-group">
-                  <button type="button" class="btn btn-default pull-right" id="daterange-btn">
-                    <span>
-                      <i class="fa fa-calendar"></i> Date range picker
-                    </span>
-                    <i class="fa fa-caret-down"></i>
-                  </button>
-                </div>
-             </div>
-          
-          
-              <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-        </div>
-      
-      </div> 
-    </section>
+	<section class="full-content-header">
+		
+		
+	</section>
 
-    <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-      </div>
-      <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-12 connectedSortable">
-          <!-- Custom tabs (Charts with tabs)-->
-          
-            <!--echart: weekly issue trend -->
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Weekly Issue Trend</h3>
+	<!-- Main content -->
+	<section class="content">
+		<!--Global Filter Section-->
+		
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Global Filter</h3>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+	
+						<div class="col-md-3">
+							<!--Issue Grade-->
+							<div class="form-group">
+								<label>Issue Grade</label>
+								<select class="form-control select2" style="width: 100%;">
+				                  <option selected="selected">1</option>
+				                  <option>2</option>
+				                  <option>3</option>
+				                  <option>4</option>
+				                  <option>5</option>
+                			    </select>
+							</div>
+							
+							
+							
+							<div class="form-group">
+								<label>Product Issue</label>
+								<select class="form-control select2" style="width: 100%;">
+				                  <option selected="selected">Product Quality</option>
+				                  <option>Tire Cracking</option>
+				                  <option>Tire Burst</option>
+				                  <option>Tire Peeling</option>
+				                  <option>Pinch Shock</option>
+								  <option>Durability</option>
+				                  <option>Tire Wear</option>						
+                			    </select>
+							</div>
+							
+						</div>
+						<div class="col-md-3">
+							<!-- Channel-->
+							<div class="form-group">
+								<label>Channel</label>
+								<select class="form-control select2" style="width: 100%;">
+				                  <option selected="selected">BBS</option>
+				                  <option>Weibo</option>
+				                  <option>Wechat</option>
+				                  <option>ComplantSites</option>
+				                  <option>News</option>
+				                  <option>VideoSites</option>
+				                </select>
+							</div>
+							
+							<div class="form-group">
+								<label>Product Involved</label>
+								<select class="form-control select2" style="width: 100%;">
+				                  <option selected="selected"> Energy XM2</option>
+				                  <option>Primacy 3ST</option>
+				                  <option>Pilot Sport 3</option>
+				                  <option>Latitude Sport 3</option>
+				                  <option>Latitude Cross</option>
+				                  <option>X-ICE 3</option>
+								  <option>Latitude X-ICE 2</option>
+				                  <option>Pilot Super Sport</option>
+				                  <option>Pilot Sport CUP 2</option>
+				                  <option>LTX A/T 2</option>
+				                  <option>Latitude Tour HP</option>
+								  <option>Primacy LC</option>
+				                  <option>Primacy SUV</option>
+				                  <option>AGILIS </option>
+				                  <option>Agilis HD</option>
+				                </select>
+							</div>
+							
+						</div>
+						
+						<div class="col-md-3">
+									<!--Issue Category-->
+							<div class="form-group">
+								<label>Issue Category</label>
+								<select class="form-control select2" style="width: 100%;">
+				                  <option selected="selected">Restaurant</option>
+				                  <option>Product</option>
+								  <option>Service</option>
+								  <option>Tyreplus</option>
+								  
+				                  
+				                </select>
+							</div>
+						</div>	
+							
+						<div class="col-md-3">
+						
 
-                  <div class="box-tools pull-right">
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+							<div class="form-group">
+
+								<label>Date range button:</label>
+
+								<div class="input-group">
+									<button type="button" class="btn btn-default pull-right" id="daterange-btn">
+					                    <span>
+					                      <i class="fa fa-calendar"></i> Date range picker
+					                    </span>
+					                    <i class="fa fa-caret-down"></i>
+					                </button>
+								</div>
+							</div>
+
+							<!-- /.form-group -->
+						</div>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+
+			</div>
+		</div>
+		
+		
+		
+		
+		
+		<!-- Small boxes (Stat box) -->
+		<div class="row">
+			<!-- ./col -->
+		</div>
+		<!-- /.row -->
+		<!-- Main row -->
+		<div class="row">
+			<!-- Left col -->
+			<section class="col-lg-12 connectedSortable">
+				<!-- Custom tabs (Charts with tabs)-->
+
+				<!--echart: weekly issue trend -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Weekly Issue Trend</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div>
-                <div class="box-body">
-                  <div class="chart">
-                      <div id="echart_weeklyissuetrend" style="height:230px"></div>
-                  <!-- <canvas id="barChart" style="height:230px"></canvas>-->
-                  </div>
-                </div>
-            </div>
-         </section>
-           
-          
-  <section class="col-lg-6 connectedSortable">
-          <!--echart:issue platform-->
-          <div class="box box-primary">
-             <div class="box-header with-border">
-                <h3 class="box-title">Issue Platform</h3>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_weeklyissuetrend" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
+			</section>
 
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+			<section class="col-lg-6 connectedSortable">
+				<!--echart:issue platform-->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Issue Platform</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-              </div>
-              <div class="box-body">
-                <div class="chart">
-                    <div id="echart_issueplatform" style="height:230px"></div>
-                <!-- <canvas id="barChart" style="height:230px"></canvas>-->
-                </div>
-              </div>
-          </div>
-          
-   </section>   
-         
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-   <section class="col-lg-6 connectedSortable">
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_issueplatform" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
 
-          <!--echart:issue platform-->
-          <!-- /.Left col -->
-          <div class="box box-primary">
-              <div class="box-header with-border">
-                <h3 class="box-title">Issue Platform</h3>
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Issue Categories</h3>
 
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-              </div>
-              <div class="box-body">
-                <div class="chart">
-                    <div id="echart_issueplatform2" style="height:230px"></div>
-                <!-- <canvas id="barChart" style="height:230px"></canvas>-->
-                </div>
-              </div> 
-          </div>  
-    </section>
-    <!-- /.content -->
-    
-         <section class="col-lg-12 connectedSortable">
-           
-            <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title">Michelin Daily Guardian Report</h3>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_issuecategories" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
 
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+			</section>
 
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tbody>
-                <tr>
-                  <th>Rank</th>
-                  <th>Issue Category</th>
-                  <th>Issue</th>
-                  <th>Product invovled</th>
-                  <th>Grade</th>
-                  <th>PV/Replies</th>
-                  <th>Post Date</th>
-                  <th>Site</th>
-                  <th>Forun</th>
-                  <th>Author Name</th>
-                  <th>Title</th>
-                </tr>
-                
-                <tr>
-                  <td>1</td>
-                  <td>Product</td>
-                  <td>Tire Burst</td>
-                  <td></td>
-                  <td><span class="label label-danger">5-Negative</span></td>
-                  <td>1508/19</td>
-                  <td>2016-5-12</td>
-                  <td>autohome</td>
-                  <td>金牛座论坛</td>
-                  <td>放任分离082</td>
-                  <td><a href="http://www.w3school.com.cn">金牛的米胎啊，让我又爱又恨</a></td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Product</td>
-                  <td>Tire Burst</td>
-                  <td></td>
-                  <td><span class="label label-warning">4-Negative</span></td>
-                  <td>1508/19</td>
-                  <td>2016-5-12</td>
-                  <td>autohome</td>
-                  <td>金牛座论坛</td>
-                  <td>放任分离082</td>
-                  <td><a href="http://www.w3school.com.cn">金牛的米胎啊，让我又爱又恨</a></td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Product</td>
-                  <td>Tire Burst</td>
-                  <td></td>
-                  <td><span class="label label-success">1-Positive</span></td>
-                  <td>1508/19</td>
-                  <td>2016-5-12</td>
-                  <td>autohome</td>
-                  <td>金牛座论坛</td>
-                  <td>放任分离082</td>
-                  <td><a href="http://www.w3school.com.cn">金牛的米胎啊，让我又爱又恨</a></td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Product</td>
-                  <td>Tire Burst</td>
-                  <td></td>
-                  <td><span class="label label-info">2-Positive</span></td>
-                  <td>1508/19</td>
-                  <td>2016-5-12</td>
-                  <td>autohome</td>
-                  <td>金牛座论坛</td>
-                  <td>放任分离082</td>
-                  <td><a href="http://www.w3school.com.cn">金牛的米胎啊，让我又爱又恨</a></td>
-                </tr>
-              </tbody></table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->    
-    
-    
-    </section>
-    </div>
-  </div>
+			<section class="col-lg-6 connectedSortable">
+
+				<!--echart:issue platform-->
+				<!-- /.Left col -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Issue Platform</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_issueplatform2" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
+
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Issue Breakdown</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_issuebreakdown" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
+
+				<!-- /.box -->
+
+			</section>
+			<!-- /.content -->
+
+			<section class="col-lg-12 connectedSortable">
+
+				<div class="box box-primary">
+					<div class="box-header">
+						<h3 class="box-title">TyrePlus Daily Guardian Report</h3>
+
+						<!--<div class="box-tools">
+							<div class="input-group input-group-sm" style="width: 150px;">
+								<input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+								<div class="input-group-btn">
+									<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+								</div>
+							</div>
+						</div>-->
+					</div>
+					<!-- /.box-header -->
+
+					<div class="box-body table-responsive no-padding">
+						<!--<table class="table table-hover">-->
+						<table id="reporttable" class="table table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>Rank</th>
+									<th>Issue Category</th>
+									<th>Issue</th>
+									<th>Product invovled</th>
+									<th>Grade</th>
+									<th>PV/Replies</th>
+									<th>Post Date</th>
+									<th>Site</th>
+									<th>Forun</th>
+									<th>Author Name</th>
+									<th>Title</th>
+								</tr>
+							</thead>
+							<!--<tbody>
+								<tr>
+									<th>Rank</th>
+									<th>Issue Category</th>
+									<th>Issue</th>
+									<th>Product invovled</th>
+									<th>Grade</th>
+									<th>PV/Replies</th>
+									<th>Post Date</th>
+									<th>Site</th>
+									<th>Forun</th>
+									<th>Author Name</th>
+									<th>Title</th>
+								</tr>
+
+								<tr>
+									<td>1</td>
+									<td>Product</td>
+									<td>Tire Burst</td>
+									<td></td>
+									<td><span class="label label-danger">5-Negative</span></td>
+									<td>1508/19</td>
+									<td>2016-5-12</td>
+									<td>autohome</td>
+									<td>閲戠墰搴ц鍧�</td>
+									<td>鏀句换鍒嗙082</td>
+									<td><a href="http://www.w3school.com.cn">閲戠墰鐨勭背鑳庡晩锛岃鎴戝張鐖卞張鎭�</a></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td>Product</td>
+									<td>Tire Burst</td>
+									<td></td>
+									<td><span class="label label-warning">4-Negative</span></td>
+									<td>1508/19</td>
+									<td>2016-5-12</td>
+									<td>autohome</td>
+									<td>閲戠墰搴ц鍧�</td>
+									<td>鏀句换鍒嗙082</td>
+									<td><a href="http://www.w3school.com.cn">閲戠墰鐨勭背鑳庡晩锛岃鎴戝張鐖卞張鎭�</a></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td>Product</td>
+									<td>Tire Burst</td>
+									<td></td>
+									<td><span class="label label-success">1-Positive</span></td>
+									<td>1508/19</td>
+									<td>2016-5-12</td>
+									<td>autohome</td>
+									<td>閲戠墰搴ц鍧�</td>
+									<td>鏀句换鍒嗙082</td>
+									<td><a href="http://www.w3school.com.cn">閲戠墰鐨勭背鑳庡晩锛岃鎴戝張鐖卞張鎭�</a></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td>Product</td>
+									<td>Tire Burst</td>
+									<td></td>
+									<td><span class="label label-info">2-Positive</span></td>
+									<td>1508/19</td>
+									<td>2016-5-12</td>
+									<td>autohome</td>
+									<td>閲戠墰搴ц鍧�</td>
+									<td>鏀句换鍒嗙082</td>
+									<td><a href="http://www.w3school.com.cn">閲戠墰鐨勭背鑳庡晩锛岃鎴戝張鐖卞張鎭�</a></td>
+								</tr>
+							</tbody>-->
+						</table>
+					</div>
+					<!-- /.box-body -->
+				</div>
+				<!-- /.box -->
+
+			</section>
+		</div>
+		</div>

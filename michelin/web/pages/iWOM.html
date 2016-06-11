@@ -13,51 +13,65 @@
     
     <section class="full-content-header">
      
-     <div class="box box-default">
+    
+                
+             
+            
+          </section>
+
+    <!-- Main content -->
+    <section class="content">
+      
+      
+       <div class="box box-primary">
         <div class="box-header with-border">
           <h3 class="box-title">Global Filter</h3>
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Issue Grade</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                  
-                </select>
-              </div>
-              <!-- /.form-group -->
-          <div class="form-group">
-                <label>Channel</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">BBS</option>
-                  <option>Weibo</option>
-                  <option>Wechat</option>
-                  <option>ComplantSites</option>
-                  <option>News</option>
-                  <option>VideoSites</option>
-                </select>
-              </div>
-              <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-            <div class="form-group">
-                <label>Issue Catrgory</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Restaurant</option>
-                  <option>Product</option>
-                  
-                </select>
-              </div>
-              <!-- /.form-group -->
-          
-          <!--daterange-->
+            <div class="col-md-3">
+                <div class="form-group">
+                  <label>Brand</label>
+                  <select class="form-control select2" style="width: 100%;">
+                    <option selected="selected">1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    
+                  </select>
+                </div>
+                
+                
+                <div class="form-group">
+                  <label>Sentiment</label>
+                  <select class="form-control select2" style="width: 100%;">
+                    <option selected="selected">1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    
+                  </select>
+                </div>
+                
+                
+             </div>
+               <div class="col-md-3">  
+                <div class="form-group">
+                  <label>Channel</label>
+                  <select class="form-control select2" style="width: 100%;">
+                    <option selected="selected">BBS</option>
+                    <option>Weibo</option>
+                    <option>Wechat</option>
+                    <option>ComplantSites</option>
+                    <option>News</option>
+                    <option>VideoSites</option>
+                  </select>
+                </div>
+                
+                
+                 <!--daterange-->
           
           <div class="form-group">
                
@@ -72,6 +86,43 @@
                   </button>
                 </div>
              </div>
+             
+              
+              </div>
+               <div class="col-md-3">
+                  <div class="form-group">
+                    <label>Product</label>
+                    <select class="form-control select2" style="width: 100%;">
+                      <option selected="selected">1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      
+                    </select>
+                  </div>
+                </div>
+              <!-- /.form-group -->
+         
+              <!-- /.form-group -->
+           
+            <!-- /.col -->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Topic</label>
+                    <select class="form-control select2" style="width: 100%;">
+                      <option selected="selected">Restaurant</option>
+                      <option>Product</option>
+                      
+                    </select>
+                </div>
+                
+                
+               
+             
+             </div>  <!-- /.form-group -->
+          
+          
           
           
               <!-- /.form-group -->
@@ -82,13 +133,10 @@
         </div>
       
       </div> 
-                
-             
-            
-          </section>
-
-    <!-- Main content -->
-    <section class="content">
+      
+      
+      
+      
       <!-- Small boxes (Stat box) -->
       <div class="row">
       </div>
@@ -100,26 +148,32 @@
           <!-- Custom tabs (Charts with tabs)-->
           
           <!--echart: weekly issue trend -->
-           <div class="box box-primary">
-              <div class="box-header with-border">
-                <h3 class="box-title">K1BuzzNSRTopic</h3>
-
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
+           <div class="nav-tabs-custom">
+            <!-- Tabs within a box -->
+            <ul class="nav nav-tabs pull-right">
+              <li class="active"><a href="#echart_K1BuzzNSRTopic1" data-toggle="tab">Tyre Brand</a></li>
+              <li><a href="#echart_K1BuzzNSRTopic2" data-toggle="tab">Product</a></li>
+              <li class="pull-left header"><i class="fa fa-inbox"></i> Michellin</li>
+            </ul>
+            <div class="tab-content no-padding">
+              <!-- Morris chart - Sales -->
+              <div class="chart tab-pane active" id="echart_K1BuzzNSRTopic1" style="position: relative; height: 1000px;">
+                 <div id="echart_main1" style="height:330px"></div>
+                  <div id="echart_main2" style="height:330px"></div>
+                   <div id="echart_main3" style="height:330px"></div>
               </div>
-              <div class="box-body">
-                <div class="chart">
-                    <div id="echart_K1BuzzNSRTopic1" style="height:430px"></div>
-                   
-                    <div id="echart_K1BuzzNSRTopic2" style="height:430px"></div>
-                <!-- <canvas id="barChart" style="height:230px"></canvas>-->
-                </div>
+              <div class="chart tab-pane" id="echart_K1BuzzNSRTopic2" style="position: relative; height: 1000px;">
+                   <div id="echart_main4" style="height:330px"></div>
+                    <div id="echart_main5" style="height:330px"></div>
               </div>
+            </div>
           </div>
           
+          
+          
+          
+          
+        
           
 
         </section>

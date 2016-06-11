@@ -1,0 +1,162 @@
+﻿<div class="full-content-wrapper" id="DailyHotTopic">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h2>
+        Daily Hot Topic
+        <small></small>
+      </h2>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li class="active">Daily Hot Topic</li>
+		</ol>
+	</section>
+
+	<section class="full-content-header">
+
+	</section>
+
+	<!-- Main content -->
+	<section class="content">
+
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Global Filter</h3>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Date range button:</label>
+								<div class="input-group">
+									<button type="button" class="btn btn-default pull-right" id="daterange-btn">
+                                <span>
+                                  <i class="fa fa-calendar"></i> Date range picker
+                                </span>
+                                <i class="fa fa-caret-down"></i>
+                    </button>
+								</div>
+							</div>
+
+							<!-- /.form-group -->
+						</div>
+
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Main row -->
+		<div class="row">
+
+			<section class="col-lg-12 connectedSortable">
+				<!-- Custom tabs (Charts with tabs)-->
+				<div class="nav-tabs-custom">
+					<!-- Tabs within a box -->
+					<ul class="nav nav-tabs pull-right">
+						<li class="active"><a href="#wechat_table" data-toggle="tab">WeChat</a></li>
+						<li><a href="#weibo_table" data-toggle="tab">Weibo</a></li>
+						<li><a href="#zhihu_table" data-toggle="tab">Zhihu</a></li>
+						<li><a href="#zhidao_table" data-toggle="tab">Zhidao</a></li>
+						<li><a href="#bbs_table" data-toggle="tab">BBS</a></li>
+
+						<li class="pull-left header"><i class="fa fa-inbox"></i> Hot Topics By Channel</li>
+					</ul>
+
+					<div class="tab-content no-padding">
+
+						<div class="tab-pane active" id="wechat_table">
+							<table id="reporttable" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Author</th>
+										<th>PostDate</th>
+										<th>Content</th>
+										<th>#Read</th>
+										<th>#Like</th>
+									</tr>
+								</thead>
+
+							</table>
+						</div>
+
+						<div class="tab-pane" id="weibo_table">
+							<table id="reporttable" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Author</th>
+										<th>isVIP</th>
+										<th>PostDate</th>
+										<th>Content</th>
+										<th>#Forward</th>
+										<th>#Reply</th>
+										<th>#Like</th>
+									</tr>
+								</thead>
+
+							</table>
+
+						</div>
+						<div class="tab-pane" id="zhihu_table">
+							<table id="reporttable" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Author</th>
+										<th>Question</th>
+										<th>PostDate</th>
+										<th>Content</th>
+										<th>#Like</th>
+										<th>#Reply</th>
+									</tr>
+								</thead>
+
+							</table>
+						</div>
+
+						<div class="tab-pane" id="zhidao_table">
+							<table id="reporttable" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Author</th>
+										<th>Question</th>
+										<th>PostDate</th>
+										<th>Content</th>
+										<th>#Like</th>
+										<th>#Dislike</th>
+									</tr>
+								</thead>
+
+							</table>
+						</div>
+
+						<div class="tab-pane" id="zhidao_table">
+							<table id="reporttable" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Author</th>
+										<th>Platform</th>
+										<th>PostDate</th>
+										<th>Content</th>
+										<th>#Read</th>
+										<th>#Reply</th>
+										<th>forumname</th>
+									</tr>
+								</thead>
+
+							</table>
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+		</div>
+
+	</section>
+	<!-- /.content -->
+</div>
