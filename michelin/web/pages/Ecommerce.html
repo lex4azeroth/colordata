@@ -34,38 +34,19 @@
 							<!--Issue Grade-->
 							<div class="form-group">
 								<label>Product Line</label>
-                    <select class="form-control select2" style="width: 100%;">
-                              <option selected="selected">JD</option>
-                              <option>Tmall</option>
-                              <option>Tuhu</option>      
-                   </select>
+                    					<select id="ecomLines" class="form-control select2" style="width: 100%;">
+                   					</select>
 							</div>
-							
-							
-							
-						
-							
 						</div>
 						<div class="col-md-3">
 							<!-- Channel-->
 							<div class="form-group">
 								<label>Score</label>
-								<select class="form-control select2" style="width: 100%;">
-				                  <option selected="selected">1</option>
-				                  <option>2</option>
-				                  <option>3</option>
-				                  <option>4</option>
-				                  <option>5</option>
-				                 
+								<select id="ecomScore" class="form-control select2" style="width: 100%;">
 				                </select>
 							</div>
-							
-					
-							
 						</div>
 						
-					
-							
 						<div class="col-md-3">
 						
 
@@ -92,28 +73,16 @@
 
 			</div>
 		</div>
-		
-      
-      
-      
-      
      
       <!-- Main row -->
-      <div class="row">
-      
-            
-            
-            
-     
-            
-            
+      <div class="row">    
          <!-- JD-->  
          <section class="col-lg-12 connectedSortable">
            <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">JD</h3>
 
-              <div class="box-tools">
+              <!--<div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
@@ -122,12 +91,12 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
             
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tbody>
+              <table id="jdTable" class="table table-bordered table-hover">
+                <thead>
                 <tr>
                   
                   <th>Store</th>
@@ -142,7 +111,7 @@
                 </tr>
                 
                 
-              </tbody></table>
+              </thead></table>
             </div>
             <!-- /.box-body -->
           </div>
@@ -160,7 +129,7 @@
             <div class="box-header">
               <h3 class="box-title">Tuhu</h3>
 
-              <div class="box-tools">
+              <!--<div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
@@ -169,14 +138,13 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
             
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tbody>
+              <table id="tuhuTable" class="table table-bordered table-hover">
+                <thead>
                 <tr>
-                  
                   <th>Store</th>
                   <th>Product Line</th>
                   <th>Product Name</th>
@@ -184,30 +152,23 @@
                   <th>User</th>
                   <th>Comment Score</th>
                   <th>Comment Content</th>
-                  <th>Comment Post Time</th>
-                  
+                  <th>Comment Post Time</th> 
                 </tr>
-                
-                
-              </tbody></table>
+              </thead>
+              </table>
             </div>
             <!-- /.box-body -->
           </div>
           <!-- /.box -->
         
           </section>
-          
-          
-          
-          
-          
            <!-- Tmall-->  
            <section class="col-lg-12 connectedSortable">
            <div class="box box-primary">
             <div class="box-header">
               <h3 class="box-title">Tmall</h3>
 
-              <div class="box-tools">
+              <!--<div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
@@ -216,12 +177,12 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
             
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tbody>
+              <table id="tmallTable" class="table table-bordered table-hover">
+                <thead>
                 <tr>
                   
                   <th>Store</th>
@@ -236,7 +197,8 @@
                 </tr>
                 
                 
-              </tbody></table>
+              </thead>
+              </table>
             </div>
             <!-- /.box-body -->
           </div>
