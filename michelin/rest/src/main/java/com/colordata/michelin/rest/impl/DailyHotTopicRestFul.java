@@ -35,7 +35,7 @@ public class DailyHotTopicRestFul {
 			@PathParam("end") String end) {
 		List<BBSTopic> bbsTopics = new ArrayList<BBSTopic>();
 		Connection conn = SqlServerConnectionService.getConn();
-		System.out.println("getWeiboTopic from " + start + " to " + end);
+		System.out.println("getBBSTopic from " + start + " to " + end);
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getDHTRecords(?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
@@ -47,7 +47,7 @@ public class DailyHotTopicRestFul {
 				BBSTopic bbsTopic = new BBSTopic();
 				bbsTopic.setId(rs.getInt("ID"));
 				bbsTopic.setAuthor(rs.getString("Author"));
-				bbsTopic.setContent(rs.getString("Content"));
+				bbsTopic.setContent(rs.getString("title"));
 				bbsTopic.setForumName(rs.getString("ForumName"));
 				bbsTopic.setPlatform(rs.getString("Platform"));
 				bbsTopic.setPostDate(rs.getString("PostDate"));
@@ -57,21 +57,21 @@ public class DailyHotTopicRestFul {
 			}
 			
 			// For test only
-			if (bbsTopics.size() == 0) {
-				BBSTopic bbsTopic = new BBSTopic();
-				bbsTopic.setId(1111);
-				bbsTopic.setAuthor("bbsAuthor");
-				bbsTopic.setContent("bbsContent");
-				bbsTopic.setForumName("kds");
-				bbsTopic.setPlatform("what?");
-				bbsTopic.setPostDate("2016-01-01");
-				bbsTopic.setReadNum(1111);
-				bbsTopic.setReplyNum(5555);
-				bbsTopics.add(bbsTopic);
-			}
+//			if (bbsTopics.size() == 0) {
+//				BBSTopic bbsTopic = new BBSTopic();
+//				bbsTopic.setId(1111);
+//				bbsTopic.setAuthor("bbsAuthor");
+//				bbsTopic.setContent("bbsTitle");
+//				bbsTopic.setForumName("kds");
+//				bbsTopic.setPlatform("what?");
+//				bbsTopic.setPostDate("2016-01-01");
+//				bbsTopic.setReadNum(1111);
+//				bbsTopic.setReplyNum(5555);
+//				bbsTopics.add(bbsTopic);
+//			}
 			
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}
 		
 		return bbsTopics;				
@@ -84,7 +84,7 @@ public class DailyHotTopicRestFul {
 			@PathParam("end") String end) {
 		List<ZhidaoTopic> zhidaoTopics = new ArrayList<ZhidaoTopic>();
 		Connection conn = SqlServerConnectionService.getConn();
-		System.out.println("getWeiboTopic from " + start + " to " + end);
+		System.out.println("getZhidaoTopic from " + start + " to " + end);
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getDHTRecords(?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
@@ -96,7 +96,7 @@ public class DailyHotTopicRestFul {
 				ZhidaoTopic zhidao = new ZhidaoTopic();
 				zhidao.setId(rs.getInt("ID"));
 				zhidao.setAuthor(rs.getString("Author"));
-				zhidao.setContent(rs.getString("Content"));
+				zhidao.setContent(rs.getString("title"));
 				zhidao.setPostDate(rs.getString("PostDate"));
 				zhidao.setQuestion(rs.getString("Question"));
 				zhidao.setLikeNum(rs.getInt("NumLike"));
@@ -105,20 +105,20 @@ public class DailyHotTopicRestFul {
 			}
 			
 			// For test only
-			if (zhidaoTopics.size() == 0) {
-				ZhidaoTopic zhidao = new ZhidaoTopic();
-				zhidao.setId(1101);
-				zhidao.setAuthor("zhidaoAuthor");
-				zhidao.setContent("zhidaoContent");
-				zhidao.setPostDate("2016-06-11");
-				zhidao.setQuestion("Do you zhidao?");
-				zhidao.setLikeNum(5);
-				zhidao.setDislikeNum(5);
-				zhidaoTopics.add(zhidao);
-			}
+//			if (zhidaoTopics.size() == 0) {
+//				ZhidaoTopic zhidao = new ZhidaoTopic();
+//				zhidao.setId(1101);
+//				zhidao.setAuthor("zhidaoAuthor");
+//				zhidao.setContent("zhidaoTitle");
+//				zhidao.setPostDate("2016-06-11");
+//				zhidao.setQuestion("Do you zhidao?");
+//				zhidao.setLikeNum(5);
+//				zhidao.setDislikeNum(5);
+//				zhidaoTopics.add(zhidao);
+//			}
 			
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}
 		
 		return zhidaoTopics;				
@@ -131,7 +131,7 @@ public class DailyHotTopicRestFul {
 			@PathParam("end") String end) {
 		List<ZhihuTopic> zhihuTopics = new ArrayList<ZhihuTopic>();
 		Connection conn = SqlServerConnectionService.getConn();
-		System.out.println("getWeiboTopic from " + start + " to " + end);
+		System.out.println("getZhihuTopic from " + start + " to " + end);
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getDHTRecords(?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
@@ -143,8 +143,8 @@ public class DailyHotTopicRestFul {
 				ZhihuTopic zhihu = new ZhihuTopic();
 				zhihu.setId(rs.getInt("ID"));
 				zhihu.setAuthor(rs.getString("Author"));
-				zhihu.setContent(rs.getString("Content"));
 				zhihu.setLikeNum(rs.getInt("NumLike"));
+				zhihu.setContent(rs.getString("title"));
 				zhihu.setPostDate(rs.getString("PostDate"));
 				zhihu.setQuestion(rs.getString("Question"));
 				zhihu.setReplyNum(rs.getInt("NumReply"));
@@ -152,20 +152,20 @@ public class DailyHotTopicRestFul {
 			}
 			
 			// For test only
-			if (zhihuTopics.size() == 0) {
-				ZhihuTopic zhihu = new ZhihuTopic();
-				zhihu.setId(1005);
-				zhihu.setAuthor("ZhihuAuthor");
-				zhihu.setContent("ZhihuContent");
-				zhihu.setLikeNum(9834);
-				zhihu.setPostDate("2016-04-05");
-				zhihu.setQuestion("Can you see me?");
-				zhihu.setReplyNum(8000);
-				zhihuTopics.add(zhihu);
-			}
+//			if (zhihuTopics.size() == 0) {
+//				ZhihuTopic zhihu = new ZhihuTopic();
+//				zhihu.setId(1005);
+//				zhihu.setAuthor("ZhihuAuthor");
+//				zhihu.setContent("zhihuTitle");
+//				zhihu.setLikeNum(9834);
+//				zhihu.setPostDate("2016-04-05");
+//				zhihu.setQuestion("Can you see me?");
+//				zhihu.setReplyNum(8000);
+//				zhihuTopics.add(zhihu);
+//			}
 			
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}
 		
 		return zhihuTopics;		
@@ -191,41 +191,42 @@ public class DailyHotTopicRestFul {
 				WeiboTopic weibo = new WeiboTopic();
 				weibo.setId(rs.getInt("ID"));
 				weibo.setAuthor(rs.getString("Author"));
-				weibo.setContent(rs.getString("Content"));
 				weibo.setForwardNum(rs.getInt("NumForward"));
+				weibo.setContent(rs.getString("title"));
 				weibo.setLikeNum(rs.getInt("NumLike"));
 				weibo.setPostDate(rs.getString("PostDate"));
-				weibo.setVIP(rs.getBoolean("Other1"));
+				weibo.setVip(rs.getString("IsVIP"));
 				weibo.setReplyNum(rs.getInt("NumReply"));
 				weiboTopics.add(weibo);
 			}
 			
 			// For test only
-			if (weiboTopics.size() == 0) {
-				WeiboTopic weibo = new WeiboTopic();
-				weibo.setId(1002);
-				weibo.setAuthor("weiboAuthor");
-				weibo.setContent("weiboContent");
-				weibo.setForwardNum(101);
-				weibo.setLikeNum(100);
-				weibo.setPostDate("2016-01-02");
-				weibo.setVIP(true);
-				weibo.setReplyNum(80);
-				weiboTopics.add(weibo);
-				
-				weibo.setId(1003);
-				weibo.setAuthor("weiboAuthor2");
-				weibo.setContent("weiboContent2");
-				weibo.setForwardNum(80);
-				weibo.setLikeNum(70);
-				weibo.setPostDate("2016-01-05");
-				weibo.setVIP(false);
-				weibo.setReplyNum(50);
-				weiboTopics.add(weibo);
-			}
+//			if (weiboTopics.size() == 0) {
+//				WeiboTopic weibo = new WeiboTopic();
+//				weibo.setId(1002);
+//				weibo.setAuthor("weiboAuthor");
+//				weibo.setContent("weiboTitle1");
+//				weibo.setForwardNum(101);
+//				weibo.setLikeNum(100);
+//				weibo.setPostDate("2016-01-02");
+//				weibo.setVIP(true);
+//				weibo.setReplyNum(80);
+//				weiboTopics.add(weibo);
+//				
+//				WeiboTopic weibo2 = new WeiboTopic();
+//				weibo2.setId(1003);
+//				weibo2.setAuthor("weiboAuthor2");
+//				weibo2.setContent("weiboTitle2");
+//				weibo2.setForwardNum(80);
+//				weibo2.setLikeNum(70);
+//				weibo2.setPostDate("2016-01-05");
+//				weibo2.setVIP(false);
+//				weibo2.setReplyNum(50);
+//				weiboTopics.add(weibo2);
+//			}
 			
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}
 		
 		return weiboTopics;
@@ -250,7 +251,7 @@ public class DailyHotTopicRestFul {
 				WeChatTopic weChat = new WeChatTopic();
 				weChat.setId(rs.getInt("ID"));
 				weChat.setAuthor(rs.getString("Author"));
-				weChat.setContent(rs.getString("Content"));
+				weChat.setContent(rs.getString("title"));
 				weChat.setPostDate(rs.getString("PostDate"));
 				weChat.setLikeNum(rs.getInt("NumLike"));
 				weChat.setReadNum(rs.getInt("NumRead"));
@@ -258,18 +259,18 @@ public class DailyHotTopicRestFul {
 			}
 			
 			// For test only
-			if (weChats.size() == 0) {
-				WeChatTopic weChat = new WeChatTopic();
-				weChat.setId(1001);
-				weChat.setAuthor("testAuthor");
-				weChat.setContent("testContent");
-				weChat.setPostDate("2016-06-11");
-				weChat.setLikeNum(11);
-				weChat.setReadNum(22);
-				weChats.add(weChat);
-			}
+//			if (weChats.size() == 0) {
+//				WeChatTopic weChat = new WeChatTopic();
+//				weChat.setId(1001);
+//				weChat.setAuthor("testAuthor");
+//				weChat.setContent("wechatTitle");
+//				weChat.setPostDate("2016-06-11");
+//				weChat.setLikeNum(11);
+//				weChat.setReadNum(22);
+//				weChats.add(weChat);
+//			}
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}			
 		return weChats;
 	}

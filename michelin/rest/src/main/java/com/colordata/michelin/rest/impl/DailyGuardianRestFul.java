@@ -62,7 +62,7 @@ public class DailyGuardianRestFul {
 				reports.add(report);
 			}
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.getStackTrace().toString());
 		}
 
 		return reports;
@@ -102,7 +102,7 @@ public class DailyGuardianRestFul {
 				percent.add(rs.getBigDecimal("Percent"));
 			}
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.getStackTrace().toString());
 		}
 		
 		issueBreakdown.setBreakdown(issueBreakdowns);
@@ -146,7 +146,7 @@ public class DailyGuardianRestFul {
 				percent.add(rs.getBigDecimal("Percent"));
 			}
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.getStackTrace().toString());
 		}
 		
 		issueCategory.setCategory(issueGrades);
@@ -190,7 +190,7 @@ public class DailyGuardianRestFul {
 				percent.add(rs.getBigDecimal("Percent"));
 			}
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.getStackTrace().toString());
 		}
 		
 		issueGrade.setIssueGrade(issueGrades);
@@ -235,7 +235,7 @@ public class DailyGuardianRestFul {
 	        }
 	        c.close();
     	} catch (SQLException ex) {
-    		
+    		System.out.println(ex.getStackTrace().toString());
     	}
     	
     	issuePlatform.setPlatform(platforms);
@@ -277,7 +277,7 @@ public class DailyGuardianRestFul {
 	        }
 	        c.close();
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.getStackTrace().toString());
 		}
 		
 		wiTrend.setDates(dates);

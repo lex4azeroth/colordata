@@ -38,7 +38,7 @@ public class EcomRestFul {
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getEcomRecordsJD(?,?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
-			c.setDate(2, Date.valueOf(start));
+			c.setDate(2, Date.valueOf(end));
 			c.setInt(3,  Integer.valueOf(id));
 			c.setInt(4, Integer.valueOf(score));
 			ResultSet rs = c.executeQuery();
@@ -48,32 +48,34 @@ public class EcomRestFul {
 				tuhu.setId(rs.getInt("ID"));
 				tuhu.setChannel(rs.getString("Channel"));
 				tuhu.setComment(rs.getString("Comment"));
-				tuhu.setPostTime(rs.getString("PostDate"));
+				tuhu.setPostTime(rs.getString("PostTime"));
 				tuhu.setProductLine(rs.getString("ProductLine"));
 				tuhu.setProductName(rs.getString("ProductName"));
 				tuhu.setUserName(rs.getString("UserName"));
 				tuhu.setScore(rs.getString("Score"));
 				tuhu.setStore(rs.getString("Store"));
+				tuhu.setUrl(rs.getString("URL"));
 				tuhus.add(tuhu);
 			}
 			
 			// For test only
-			if (tuhus.size() == 0) {
-				EcomTuhu tuhu = new EcomTuhu();
-				tuhu.setId(12323);
-				tuhu.setChannel("TmallChannel");
-				tuhu.setComment("TmallComment");
-				tuhu.setPostTime("2016-11-12");
-				tuhu.setProductLine("TmallProductLine");
-				tuhu.setProductName("TmallProductName");
-				tuhu.setUserName("TmallUserName");
-				tuhu.setScore("333");
-				tuhu.setStore("222");
-				tuhus.add(tuhu);
-			}
+//			if (tuhus.size() == 0) {
+//				EcomTuhu tuhu = new EcomTuhu();
+//				tuhu.setId(12323);
+//				tuhu.setChannel("TmallChannel");
+//				tuhu.setComment("TmallComment");
+//				tuhu.setPostTime("2016-11-12");
+//				tuhu.setProductLine("TmallProductLine");
+//				tuhu.setProductName("TmallProductName");
+//				tuhu.setUserName("TmallUserName");
+//				tuhu.setScore("333");
+//				tuhu.setStore("222");
+//				tuhu.setUrl("URL");
+//				tuhus.add(tuhu);
+//			}
 			
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}
 		
 		return tuhus;
@@ -90,7 +92,7 @@ public class EcomRestFul {
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getEcomRecordsJD(?,?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
-			c.setDate(2, Date.valueOf(start));
+			c.setDate(2, Date.valueOf(end));
 			c.setInt(3,  Integer.valueOf(id));
 			c.setInt(4, Integer.valueOf(score));
 			ResultSet rs = c.executeQuery();
@@ -100,32 +102,34 @@ public class EcomRestFul {
 				tmall.setId(rs.getInt("ID"));
 				tmall.setChannel(rs.getString("Channel"));
 				tmall.setComment(rs.getString("Comment"));
-				tmall.setPostTime(rs.getString("PostDate"));
+				tmall.setPostTime(rs.getString("PostTime"));
 				tmall.setProductLine(rs.getString("ProductLine"));
 				tmall.setProductName(rs.getString("ProductName"));
 				tmall.setUserName(rs.getString("UserName"));
 				tmall.setScore(rs.getString("Score"));
 				tmall.setStore(rs.getString("Store"));
+				tmall.setUrl(rs.getString("URL"));
 				tmalls.add(tmall);
 			}
 			
 			// For test only
-			if (tmalls.size() == 0) {
-				EcomTmall tmall = new EcomTmall();
-				tmall.setId(12323);
-				tmall.setChannel("TmallChannel");
-				tmall.setComment("TmallComment");
-				tmall.setPostTime("2016-11-12");
-				tmall.setProductLine("TmallProductLine");
-				tmall.setProductName("TmallProductName");
-				tmall.setUserName("TmallUserName");
-				tmall.setScore("333");
-				tmall.setStore("222");
-				tmalls.add(tmall);
-			}
+//			if (tmalls.size() == 0) {
+//				EcomTmall tmall = new EcomTmall();
+//				tmall.setId(12323);
+//				tmall.setChannel("TmallChannel");
+//				tmall.setComment("TmallComment");
+//				tmall.setPostTime("2016-11-12");
+//				tmall.setProductLine("TmallProductLine");
+//				tmall.setProductName("TmallProductName");
+//				tmall.setUserName("TmallUserName");
+//				tmall.setScore("333");
+//				tmall.setStore("222");
+//				tmall.setUrl("URL");
+//				tmalls.add(tmall);
+//			}
 			
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}
 		
 		return tmalls;
@@ -143,7 +147,7 @@ public class EcomRestFul {
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getEcomRecordsJD(?,?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
-			c.setDate(2, Date.valueOf(start));
+			c.setDate(2, Date.valueOf(end));
 			c.setInt(3,  Integer.valueOf(id));
 			c.setInt(4, Integer.valueOf(score));
 			ResultSet rs = c.executeQuery();
@@ -153,31 +157,33 @@ public class EcomRestFul {
 				jd.setId(rs.getInt("ID"));
 				jd.setChannel(rs.getString("Channel"));
 				jd.setComment(rs.getString("Comment"));
-				jd.setPostTime(rs.getString("PostDate"));
+				jd.setPostTime(rs.getString("PostTime"));
 				jd.setProductLine(rs.getString("ProductLine"));
 				jd.setProductName(rs.getString("ProductName"));
 				jd.setUserName(rs.getString("UserName"));
 				jd.setScore(rs.getString("Score"));
 				jd.setStore(rs.getString("Store"));
+				jd.setUrl(rs.getString("URL"));
 				jds.add(jd);
 			}
 			
-			if (jds.size() == 0) {
-				EcomJD jd = new EcomJD();
-				jd.setId(12323);
-				jd.setChannel("JDChannel");
-				jd.setComment("JDComment");
-				jd.setPostTime("2016-11-12");
-				jd.setProductLine("JDProductLine");
-				jd.setProductName("JDProductName");
-				jd.setUserName("JDUserName");
-				jd.setScore("333");
-				jd.setStore("222");
-				jds.add(jd);
-			}
+//			if (jds.size() == 0) {
+//				EcomJD jd = new EcomJD();
+//				jd.setId(12323);
+//				jd.setChannel("JDChannel");
+//				jd.setComment("JDComment");
+//				jd.setPostTime("2016-11-12");
+//				jd.setProductLine("JDProductLine");
+//				jd.setProductName("JDProductName");
+//				jd.setUserName("JDUserName");
+//				jd.setScore("333");
+//				jd.setStore("222");
+//				jd.setUrl("URL");
+//				jds.add(jd);
+//			}
 			
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}
 		
 		return jds;
@@ -201,7 +207,7 @@ public class EcomRestFul {
 			}
 			
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}
 		
 		return scores;				
@@ -226,7 +232,7 @@ public class EcomRestFul {
 			}
 			
 		} catch (SQLException ex) {
-			
+			System.out.println(ex.toString());
 		}
 		
 		return ecomProductLines;				

@@ -10,6 +10,7 @@ public class EcomTuhu {
 	private String score;
 	private String comment;
 	private String postTime;
+	private String url;
 	public int getId() {
 		return id;
 	}
@@ -63,5 +64,11 @@ public class EcomTuhu {
 	}
 	public void setPostTime(String postTime) {
 		this.postTime = postTime;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }

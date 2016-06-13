@@ -4,7 +4,7 @@ public class WeiboTopic {
 
 	private int id;
 	private String author;
-	private boolean isVIP;
+	private String vip;
 	private String postDate;
 	private String content;
 	private int forwardNum;
@@ -22,12 +22,7 @@ public class WeiboTopic {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public boolean isVIP() {
-		return isVIP;
-	}
-	public void setVIP(boolean isVIP) {
-		this.isVIP = isVIP;
-	}
+	
 	public String getPostDate() {
 		return postDate;
 	}
@@ -57,6 +52,12 @@ public class WeiboTopic {
 	}
 	public void setLikeNum(int likeNum) {
 		this.likeNum = likeNum;
+	}
+	public String getVip() {
+		return vip;
+	}
+	public void setVip(String vip) {
+		this.vip = vip;
 	}
 	
 	
