@@ -15,7 +15,7 @@ function init_daily_hot_topic_bbs(data) {
 
 	$('#bbstopic').DataTable({
 		"bDestroy": true,
-		sDom: 't',
+		sDom: 't' + "<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
@@ -27,9 +27,15 @@ function init_daily_hot_topic_bbs(data) {
 			data: 'platform'
 		}, {
 			data: 'postDate',
-			width: '100'
+			width: '100',
+			render: function(data, type, row) {
+				return data.substring(0, 10);
+			}
 		}, {
-			data: 'content'
+			data: 'content',
+			render: function(data, type, row) {
+			return '<a href=' + row.url  + ' target= "_blank">' + data + '</a>';
+			}
 		}, {
 			data: 'readNum'
 		}, {
@@ -56,7 +62,7 @@ function init_daily_hot_topic_zhidao(data) {
 
 	$('#zhidaotopic').DataTable({
 		"bDestroy": true,
-		sDom: 't',
+		sDom: 't' + "<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
@@ -65,10 +71,16 @@ function init_daily_hot_topic_zhidao(data) {
 			data: 'author',
 			width: '50'
 		}, {
-			data: 'question'
+			data: 'question',
+			render: function(data, type, row) {
+			return '<a href=' + row.url  + ' target= "_blank">' + data + '</a>';
+			}
 		}, {
 			data: 'postDate',
-			width: '100'
+			width: '100',
+			render: function(data, type, row) {
+				return data.substring(0, 10);
+			}
 		}, {
 			data: 'content'
 		}, {
@@ -95,7 +107,7 @@ function init_daily_hot_topic_zhihu(data) {
 
 	$('#zhihutopic').DataTable({
 		"bDestroy": true,
-		sDom: 't',
+		sDom: 't' + "<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
@@ -104,10 +116,16 @@ function init_daily_hot_topic_zhihu(data) {
 			data: 'author',
 			width: '50'
 		}, {
-			data: 'question'
+			data: 'question',
+			render: function(data, type, row) {
+			return '<a href=' + row.url  + ' target= "_blank">' + data + '</a>';
+			}
 		}, {
 			data: 'postDate',
-			width: '100'
+			width: '100',
+			render: function(data, type, row) {
+				return data.substring(0, 10);
+			}
 		}, {
 			data: 'content'
 		}, {
@@ -134,7 +152,7 @@ function init_daily_hot_topic_weibo(data) {
 
 	$('#weibotopic').DataTable({
 		"bDestroy": true,
-		sDom: 't',
+		sDom: 't' + "<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
@@ -144,12 +162,18 @@ function init_daily_hot_topic_weibo(data) {
 			width: '50'
 		}, {
 			data: 'vip',
-			width: '30'
-		}, {
-			data: 'postDate',
 			width: '100'
 		}, {
-			data: 'content'
+			data: 'postDate',
+			width: '100',
+			render: function(data, type, row) {
+				return data.substring(0, 10);
+			}
+		}, {
+			data: 'content',
+			render: function(data, type, row) {
+			return '<a href=' + row.url  + ' target= "_blank">' + data + '</a>';
+			}
 		}, {
 			data: 'forwardNum'
 		}, {
@@ -176,7 +200,7 @@ function init_dialy_hot_topic_wechat(data) {
 
 	$('#wechattopic').DataTable({
 		"bDestroy": true,
-		sDom: 't',
+		sDom: 't' + "<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
@@ -186,9 +210,15 @@ function init_dialy_hot_topic_wechat(data) {
 			width: '50'
 		}, {
 			data: 'postDate',
-			width: '100'
+			width: '100',
+			render: function(data, type, row) {
+				return data.substring(0, 10);
+			}
 		}, {
-			data: 'content'
+			data: 'content',
+			render: function(data, type, row) {
+			return '<a href=' + row.url  + ' target= "_blank">' + data + '</a>';
+			}
 		}, {
 			data: 'readNum'
 		}, {

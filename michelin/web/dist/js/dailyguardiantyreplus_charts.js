@@ -1,13 +1,13 @@
-var baseURL = "michelinrest/dailyguardian/";
+var baseURLDGTyreplus = "michelinrest/dailyguardiantyreplus/";
 var reportTable;
 
 
-function MDGbindFilters() {
+function DGbindFilters() {
 	
 	var IssueGrades = [];
 	$.ajax({
 		type: "GET",
-		url: baseURL + "FilterIssueGrade",
+		url: baseURLDGTyreplus + "FilterIssueGrade_TyrePlus",
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -16,20 +16,20 @@ function MDGbindFilters() {
 	});
 
 	$.each(IssueGrades, function(index, optiondata) {
-		$("#MDGIssueGrade").append('<option value=' + optiondata.issueGradeID + '>' + optiondata.issueGrade + '</option>')
+		$("#DGIssueGrade").append('<option value=' + optiondata.issueGradeID + '>' + optiondata.issueGrade + '</option>')
 	});
 
 	
 
 	
-	$('#MDGIssueGrade').change(function() {
-	MDGreloadAll();
+	$('#DGIssueGrade').change(function() {
+	DGreloadAll();
 	});
 
 	var Channels = [];
 	$.ajax({
 		type: "GET",
-		url: baseURL + "Channel",
+		url: baseURLDGTyreplus + "Channel_TyrePlus",
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -38,25 +38,20 @@ function MDGbindFilters() {
 	});
 
 	$.each(Channels, function(index, optiondata) {
-		$("#MDGChannel").append('<option value=' + optiondata.channelID + '>' + optiondata.channel + '</option>')
+		$("#DGChannel").append('<option value=' + optiondata.channelID + '>' + optiondata.channel + '</option>')
 	});
 
 	
-	$('#MDGChannel').change(function() {
-	MDGreloadAll();
+	$('#DGChannel').change(function() {
+	DGreloadAll();
 	});
 
 
 
-	
-
-
-
-	
 	var IssueCategories = [];
 	$.ajax({
 		type: "GET",
-		url: baseURL + "IssueCategory",
+		url: baseURLDGTyreplus + "IssueCategory_Tyreplus",
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -65,7 +60,7 @@ function MDGbindFilters() {
 	});
 
 	$.each(IssueCategories, function(index, optiondata) {
-		$("#MDGIssueCategory").append('<option value=' + optiondata.issueCategoryID + '>' + optiondata.issueCategory + '</option>')
+		$("#DGIssueCategory").append('<option value=' + optiondata.issueCategoryID + '>' + optiondata.issueCategory + '</option>')
 	});
 
 	
@@ -73,65 +68,44 @@ function MDGbindFilters() {
 	
 
 	
-	$('#MDGIssueCategory').change(function() {
-	MDGreloadAll();
-	});
-	
-	
-	
-	var ProductIssues = [];
-	$.ajax({
-		type: "GET",
-		url: baseURL + "ProductIssueBreakdown",
-		async: false,
-		dataType: "json",
-		success: function(returnValue) {
-			ProductIssues = returnValue;
-		}
+	$('#DGIssueCategory').change(function() {
+	DGreloadAll();
 	});
 
-	$.each(ProductIssues, function(index, optiondata) {
-		$("#MDGProductIssue").append('<option value=' + optiondata.productIssueBreakdownID + '>' + optiondata.productIssueBreakdown + '</option>')
-	});
 
-	
 
-	
-
-	
-	$('#MDGProductIssue').change(function() {
-	MDGreloadAll();
-	});
-	
-	
-	
-	var RelatedProducts = [];
-	$.ajax({
-		type: "GET",
-		url: baseURL + "RelatedProduct",
-		async: false,
-		dataType: "json",
-		success: function(returnValue) {
-			RelatedProducts = returnValue;
-		}
-	});
-
-	$.each(RelatedProducts, function(index, optiondata) {
-		$("#MDGProductInvolved").append('<option value=' + optiondata.relatedProductID + '>' + optiondata.relatedProduct + '</option>')
-	});
 
 	
 	
-	$('#MDGProductInvolved').change(function() {
-	MDGreloadAll();
-	});
 	
 	
 	
 }
 
 
-function initReporTable(tableData) {
+function DGgetFilterData() {
+	var filterData = {
+		"IssueGrade": $('#DGIssueGrade').children('option:selected').val(), 
+		"Channel": $('#DGChannel').children('option:selected').val(),
+		"IssueCategory": $('#DGIssueCategory').children('option:selected').val(), 
+	}
+	
+	return filterData;
+}
+
+
+function DGreloadAll() {
+		var dateRange = getCurrentDateRange();		
+		//init_dg_report_tyreplus(dateRange);
+		//init_dg_issuebreakdown_tyreplus(dateRange);
+		//init_dg_issuecategory_tyreplus(dateRange);
+		//init_dg_issuegrade_tyreplus(dateRange);
+		//init_dg_issueplatform_tyreplus(dateRange);
+		init_dg_weeklyissuetrend_tyreplus(dateRange);		
+		
+}
+
+function initReporTable_tyreplus(tableData) {
 	reportTable = $('#reporttable').DataTable({
 //		columnDefs: [{
 //			orderable: false,
@@ -186,37 +160,17 @@ function initReporTable(tableData) {
 	});
 }
 
-function MDGgetFilterData() {
-	var filterData = {
-		"IssueGrade": $('#MDGIssueGrade').children('option:selected').val(), 
-		"Channel": $('#MDGChannel').children('option:selected').val(),
-		"IssueCategory": $('#MDGIssueCategory').children('option:selected').val(), 
-		"ProductIssueBreakdown": $('#MDGProductIssue').children('option:selected').val(),
-		"RelatedProduct": $('#MDGProductInvolved').children('option:selected').val()
-	}
-	
-	return filterData;
-}
 
 
-function MDGreloadAll() {
-		var dateRange = getCurrentDateRange();		
-		init_dg_report(dateRange);
-		init_dg_issuebreakdown(dateRange);
-		init_dg_issuecategory(dateRange);
-		init_dg_issuegrade(dateRange);
-		init_dg_issueplatform(dateRange);
-		init_dg_weeklyissuetrend(dateRange);		
-}
 
 
-function init_dg_report(data) {
-	var subURL = baseURL + "report/";
+function init_dg_report_tyreplus(data) {
+	var subURL = baseURLDGTyreplus + "report/";
 	var tableData = [];
-	var filterData = MDGgetFilterData();
+	
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory + "/" + filterData.ProductIssueBreakdown +"/"+filterData.RelatedProduct,
+		url: subURL + data.start + "/" + data.end,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -227,17 +181,14 @@ function init_dg_report(data) {
 	initReporTable(tableData);
 }
 
-function init_dg_issuebreakdown(data) {
-	var subURL = baseURL + "issuebreakdown/";
+function init_dg_issuebreakdown_tyreplus(data) {
+	var subURL = baseURLDGTyreplus + "issuebreakdowndgtyreplus/";
 	var issueBreakdowns = [];
 	var cnts = [];
 	var pairs = [];
-	var filterData = MDGgetFilterData();
-	//var filterData = MDGgetFilterData();
-	
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory + "/" + filterData.ProductIssueBreakdown +"/"+filterData.RelatedProduct,
+		url: subURL + data.start + "/" + data.end,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -249,7 +200,10 @@ function init_dg_issuebreakdown(data) {
 
 	var myChart5 = echarts.init(document.getElementById('echart_issuebreakdown'), 'macarons');
 	option5 = {
-		
+		title: [{
+			text: 'Product Issue Breakdown',
+			x: 'center'
+		}],
 		tooltip: {
 			trigger: 'item',
 			formatter: "{b}: {c} ({d}%)"
@@ -304,15 +258,14 @@ function init_dg_issuebreakdown(data) {
 	myChart5.setOption(option5);
 }
 
-function init_dg_issuecategory(data) {
-	var subURL = baseURL + "issuecategory/";
+function init_dg_issuecategory_tyreplus(data) {
+	var subURL = baseURLDGTyreplus + "issuecategorydgtyreplus/";
 	var issueGrades = [];
 	var cnts = [];
 	var pairs = [];
-	var filterData = MDGgetFilterData();
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory + "/" + filterData.ProductIssueBreakdown +"/"+filterData.RelatedProduct,
+		url: subURL + data.start + "/" + data.end,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -324,7 +277,13 @@ function init_dg_issuecategory(data) {
 	// ͼP4
 	var myChart4 = echarts.init(document.getElementById('echart_issuecategories'), 'macarons');
 	var option4 = {
-		
+		title: [{
+			text: '',
+			x: 'center'
+		}, {
+			subtext: 'Data Period: May 14 to May 20, 2016',
+			bottom: '3%'
+		}],
 		tooltip: {
 			trigger: 'item',
 			formatter: "{b}: {c} ({d}%)"
@@ -346,12 +305,9 @@ function init_dg_issuecategory(data) {
 		},
 
 		legend: {
-			orient: 'vertical',
-			left: '70%',
-			top: '40%',
-			//orient: 'horizontal',
-			//left: '40%',
-			//top: '80%',
+			orient: 'horizontal',
+			left: '40%',
+			top: '80%',
 			data: issueCategorys
 		},
 		series: [{
@@ -383,15 +339,14 @@ function init_dg_issuecategory(data) {
 	myChart4.setOption(option4);
 }
 
-function init_dg_issuegrade(data) {
-	var subURL = baseURL + "issuegrade/";
+function init_dg_issuegrade_tyreplus(data) {
+	var subURL = baseURLDGTyreplus + "issuegradedgtyreplus/";
 	var issueGrades = [];
 	var cnts = [];
 	var pairs = [];
-	var filterData = MDGgetFilterData();
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory + "/" + filterData.ProductIssueBreakdown +"/"+filterData.RelatedProduct,
+		url: subURL + data.start + "/" + data.end,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -404,7 +359,13 @@ function init_dg_issuegrade(data) {
 	// ͼP2
 	var myChart2 = echarts.init(document.getElementById('echart_issueplatform'), 'macarons');
 	var option2 = {
-		
+		title: [{
+			text: '',
+			x: 'center'
+		}, {
+			subtext: 'Data Period: May 14 to May 20, 2016',
+			bottom: '3%'
+		}],
 
 		tooltip: {
 			trigger: 'item',
@@ -452,15 +413,14 @@ function init_dg_issuegrade(data) {
 	myChart2.setOption(option2);
 }
 
-function init_dg_issueplatform(data) {
-	var subURL = baseURL + "issueplatform/";
+function init_dg_issueplatform_tyreplus(data) {
+	var subURL = baseURLDGTyreplus + "issueplatformdgtyreplus/";
 	var platforms = [];
 	var cnts = [];
 	var pairs = [];
-	var filterData = MDGgetFilterData();
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory + "/" + filterData.ProductIssueBreakdown +"/"+filterData.RelatedProduct,
+		url: subURL + data.start + "/" + data.end,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -472,7 +432,13 @@ function init_dg_issueplatform(data) {
 
 	var myChart3 = echarts.init(document.getElementById('echart_issueplatform2'), 'macarons');
 	var option3 = {
-		
+		title: [{
+			text: '',
+			x: 'center'
+		}, {
+			subtext: 'Data Period: May 14 to May 20, 2016',
+			bottom: '3%'
+		}],
 		tooltip: {
 			trigger: 'item',
 			formatter: "{b}: {c} ({d}%)"
@@ -504,7 +470,7 @@ function init_dg_issueplatform(data) {
 			type: 'pie',
 			radius: ['35%', '45%'],
 			center: ['40%', '50%'],
-			avoidLabelOverlap: true,
+			avoidLabelOverlap: false,
 			label: {
 				normal: {
 					show: true,
@@ -528,16 +494,16 @@ function init_dg_issueplatform(data) {
 	myChart3.setOption(option3);
 }
 
-function init_dg_weeklyissuetrend(data) {
+function init_dg_weeklyissuetrend_tyreplus(data1) {
 	var dates = [];
 	var negativeIssue = [];
 	var crisisIssue = [];
-	var subURL = baseURL + "weeklyissuetrend/";
-	var filterData = MDGgetFilterData();
-	
+	var subURL = baseURLDGTyreplus + "weeklyissuetrenddgtyreplus/";
+	var filterData = DGgetFilterData();
+
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory + "/" + filterData.ProductIssueBreakdown +"/"+filterData.RelatedProduct,
+		url: subURL + data1.start + "/" + data1.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -590,8 +556,7 @@ function init_dg_weeklyissuetrend(data) {
 			data: dates
 		}],
 		yAxis: [{
-			type: 'value',
-			show:false
+			type: 'value'
 		}],
 		series: [{
 			name: 'Negative Issue',

@@ -84,25 +84,30 @@ function init_ecom_tuhu(dateRange) {
 		],
 		data: tableData,
 		columns: [{
-			data: 'store'
+			data: 'store',
+			width: '200'
 		}, {
-			data: 'productLine'
+			data: 'productLine',
+			width: '100'
 		}, {
-			data: 'productName'
-		}, {
-			data: 'productURL',
+			data: 'productName', 
 			render: function(data, type, row) {
-				//					return '<a href=' + row.forumUrl  + '>' + data + '</a>';
-				return 'URL';
+			return '<a href=' + row.url  + ' target= "_blank">' + data + '</a>';
 			}
 		}, {
 			data: 'userName'
 		}, {
-			data: 'score'
+			data: 'score', 
+			width: '50'
 		}, {
 			data: 'comment'
 		}, {
-			data: 'postTime'
+			data: 'postTime', 
+			width: '70'
+			//render: function (data, type, row) {
+			//	var indexOfPoint = data.indexOf('.');
+			//	return data.substring(0, indexOfPoint);
+			//}
 		}], 
 		initComplete: function() {
 			$("#tuHuTool").append('<a>Download</a>');
@@ -126,6 +131,7 @@ function init_ecom_tmall(dateRange) {
 	});
 
 	$('#tmallTable').DataTable({
+		"bPaginate": true, 
 		"bDestroy": true,
 		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#tmallTool'>>" +
 			"t" +
@@ -135,25 +141,30 @@ function init_ecom_tmall(dateRange) {
 		],
 		data: tableData,
 		columns: [{
-			data: 'store'
+			data: 'store',
+			width: '200'
 		}, {
-			data: 'productLine'
+			data: 'productLine',
+			width: '100'
 		}, {
-			data: 'productName'
-		}, {
-			data: 'productURL',
+			data: 'productName', 
 			render: function(data, type, row) {
-				//					return '<a href=' + row.forumUrl  + '>' + data + '</a>';
-				return 'URL';
+				return '<a href=' + row.url  + ' target= "_blank">' + data + '</a>';
 			}
 		}, {
 			data: 'userName'
 		}, {
-			data: 'score'
+			data: 'score', 
+			width: '50'
 		}, {
 			data: 'comment'
 		}, {
-			data: 'postTime'
+			data: 'postTime', 
+			width: '70'
+			//render: function (data, type, row) {
+			//	var indexOfPoint = data.indexOf('.');
+			//	return data.substring(0, indexOfPoint);
+			//}
 		}], 
 		initComplete: function() {
 			$("#tmallTool").append('<a>Download</a>');
@@ -177,37 +188,43 @@ function init_ecom_jd(dateRange) {
 	});
 
 	$('#jdTable').DataTable({
+		"paging": true, 
 		"bDestroy": true,
-		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#jdTool'>>" +
-			"t" +
-			"<'bottom'ip>",
+		//sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#jdTool'>>" +
+		//	"t" +
+		//	"<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
 		data: tableData,
 		columns: [{
-			data: 'store'
+			data: 'store',
+			width: '200'
 		}, {
-			data: 'productLine'
+			data: 'productLine',
+			width: '100'
 		}, {
-			data: 'productName'
-		}, {
-			data: 'productURL',
+			data: 'productName', 
 			render: function(data, type, row) {
-				//					return '<a href=' + row.forumUrl  + '>' + data + '</a>';
-				return 'URL';
+				return '<a href=' + row.url  + ' target= "_blank">' + data + '</a>';
 			}
 		}, {
 			data: 'userName'
 		}, {
-			data: 'score'
+			data: 'score', 
+			width: '50'
 		}, {
 			data: 'comment'
 		}, {
-			data: 'postTime'
+			data: 'postTime',
+			width: '70'
+			//render: function (data, type, row) {
+			//	var indexOfPoint = data.indexOf('.');
+			//	return data.substring(0, indexOfPoint);
+			//}
 		}], 
 		initComplete: function() {
-			$("#jdTool").append('<a>Download</a>');
+		//	$("#jdTool").append('<a>Download</a>');
 		}
 	});
 }
