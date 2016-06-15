@@ -9,6 +9,8 @@ public class ZhihuTopic {
 	private String content;
 	private int likeNum;
 	private int replyNum;
+	private String URL;
+	
 	public int getId() {
 		return id;
 	}
@@ -52,5 +54,11 @@ public class ZhihuTopic {
 		this.replyNum = replyNum;
 	}
 	
+	public String getURL() {
+		return URL;
+	}
+	public void setURL(String URL) {
+		this.URL = URL;
+	}
 	
 }

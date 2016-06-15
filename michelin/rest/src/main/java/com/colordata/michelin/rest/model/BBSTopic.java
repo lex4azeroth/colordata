@@ -10,6 +10,8 @@ public class BBSTopic {
 	private int readNum;
 	private int replyNum;
 	private String forumName;
+	private String URL;
+	
 	public int getId() {
 		return id;
 	}
@@ -57,6 +59,13 @@ public class BBSTopic {
 	}
 	public void setForumName(String forumName) {
 		this.forumName = forumName;
+	}
+	
+	public String getURL() {
+		return URL;
+	}
+	public void setURL(String URL) {
+		this.URL = URL;
 	}
 	
 	

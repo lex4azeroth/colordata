@@ -10,6 +10,8 @@ public class WeiboTopic {
 	private int forwardNum;
 	private int replyNum;
 	private int likeNum;
+	private String URL;
+	
 	public int getId() {
 		return id;
 	}
@@ -58,6 +60,12 @@ public class WeiboTopic {
 	}
 	public void setVip(String vip) {
 		this.vip = vip;
+	}
+	public String getURL() {
+		return URL;
+	}
+	public void setURL(String URL) {
+		this.URL = URL;
 	}
 	
 	

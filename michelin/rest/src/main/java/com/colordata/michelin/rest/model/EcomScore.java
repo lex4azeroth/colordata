@@ -1,13 +1,13 @@
 package com.colordata.michelin.rest.model;
 
 public class EcomScore {
-	private int score;
+	private String score;
 
-	public int getScore() {
+	public String getScore() {
 		return score;
 	}
 
-	public void setScore(int score) {
+	public void setScore(String score) {
 		this.score = score;
 	}
 	

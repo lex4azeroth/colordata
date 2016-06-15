@@ -9,6 +9,8 @@ public class ZhidaoTopic {
 	private String content;
 	private int likeNum;
 	private int dislikeNum;
+	private String URL;
+	
 	public int getId() {
 		return id;
 	}
@@ -50,5 +52,11 @@ public class ZhidaoTopic {
 	}
 	public void setDislikeNum(int dislikeNum) {
 		this.dislikeNum = dislikeNum;
+	}
+	public String getURL() {
+		return URL;
+	}
+	public void setURL(String URL) {
+		this.URL = URL;
 	}
 }

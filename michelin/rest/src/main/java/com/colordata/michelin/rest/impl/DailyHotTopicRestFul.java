@@ -53,6 +53,7 @@ public class DailyHotTopicRestFul {
 				bbsTopic.setPostDate(rs.getString("PostDate"));
 				bbsTopic.setReadNum(rs.getInt("NumRead"));
 				bbsTopic.setReplyNum(rs.getInt("NumReply"));
+				bbsTopic.setURL(rs.getString("URL"));
 				bbsTopics.add(bbsTopic);
 			}
 			
@@ -101,6 +102,7 @@ public class DailyHotTopicRestFul {
 				zhidao.setQuestion(rs.getString("Question"));
 				zhidao.setLikeNum(rs.getInt("NumLike"));
 				zhidao.setDislikeNum(rs.getInt("NumDislike"));
+				zhidao.setURL(rs.getString("URL"));
 				zhidaoTopics.add(zhidao);
 			}
 			
@@ -148,6 +150,7 @@ public class DailyHotTopicRestFul {
 				zhihu.setPostDate(rs.getString("PostDate"));
 				zhihu.setQuestion(rs.getString("Question"));
 				zhihu.setReplyNum(rs.getInt("NumReply"));
+				zhihu.setURL(rs.getString("URL"));
 				zhihuTopics.add(zhihu);
 			}
 			
@@ -197,6 +200,7 @@ public class DailyHotTopicRestFul {
 				weibo.setPostDate(rs.getString("PostDate"));
 				weibo.setVip(rs.getString("IsVIP"));
 				weibo.setReplyNum(rs.getInt("NumReply"));
+				weibo.setURL(rs.getString("URL"));
 				weiboTopics.add(weibo);
 			}
 			
@@ -255,6 +259,7 @@ public class DailyHotTopicRestFul {
 				weChat.setPostDate(rs.getString("PostDate"));
 				weChat.setLikeNum(rs.getInt("NumLike"));
 				weChat.setReadNum(rs.getInt("NumRead"));
+				weChat.setURL(rs.getString("URL"));
 				weChats.add(weChat);
 			}
 			

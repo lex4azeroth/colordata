@@ -17,10 +17,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.colordata.michelin.rest.model.EcomProductLines;
-import com.colordata.michelin.rest.model.EcomScore;
 import com.colordata.michelin.rest.model.FilterChannel;
-import com.colordata.michelin.rest.model.FilterIssueCategory;
+import com.colordata.michelin.rest.model.FilterIssueCategory_Tyreplus;
+import com.colordata.michelin.rest.model.FilterIssueGrade;
 import com.colordata.michelin.rest.model.IssueBreakdown;
 import com.colordata.michelin.rest.model.IssueCategory;
 import com.colordata.michelin.rest.model.IssueGrade;
@@ -28,22 +27,20 @@ import com.colordata.michelin.rest.model.IssuePlatform;
 import com.colordata.michelin.rest.model.Report;
 import com.colordata.michelin.rest.model.ValueNamePair;
 import com.colordata.michelin.rest.model.WeeklyIssueTrend;
-import com.colordata.michelin.rest.model.FilterIssueGrade;
-import com.colordata.michelin.rest.model.FilterProductIssue;
-import com.colordata.michelin.rest.model.FilterRelatedProduct;
 
-@Path("/dailyguardian")
+@Path("/dailyguardiantyreplus")
 @RequestScoped
 @Stateful
-public class DailyGuardianRestFul {
+public class DailyGuardianRestFulTyrePlus {
+
 	
 	@GET
-	@Path("FilterIssueGrade")
+	@Path("FilterIssueGrade_TyrePlus")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FilterIssueGrade> getIssueGrade() {
 		List<FilterIssueGrade> issueGrades = new ArrayList<FilterIssueGrade>();
 		Connection conn = SqlServerConnectionService.getConn();
-		System.out.println("getIssueGrade");
+		System.out.println("getIssueGrade_tyreplus");
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianDimIssueGrade() }");
 			ResultSet rs = c.executeQuery();
@@ -63,12 +60,12 @@ public class DailyGuardianRestFul {
 	}
 	
 	@GET
-	@Path("Channel")
+	@Path("Channel_TyrePlus")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<FilterChannel> getChannel() {
 		List<FilterChannel> Channels = new ArrayList<FilterChannel>();
 		Connection conn = SqlServerConnectionService.getConn();
-		System.out.println("getChannel");
+		System.out.println("getChannel_tyreplus");
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianDimChannel()}");
 			ResultSet rs = c.executeQuery();
@@ -87,109 +84,48 @@ public class DailyGuardianRestFul {
 		return Channels;				
 	}
 	
-
 	@GET
-	@Path("IssueCategory")
+	@Path("IssueCategory_Tyreplus")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<FilterIssueCategory> getIssueCategory() {
-		List<FilterIssueCategory> IssueCategories = new ArrayList<FilterIssueCategory>();
+	public List<FilterIssueCategory_Tyreplus> getIssueCategory_Tyreplus() {
+		List<FilterIssueCategory_Tyreplus>IssueCategories_Tyreplus  = new ArrayList<FilterIssueCategory_Tyreplus>();
 		Connection conn = SqlServerConnectionService.getConn();
-		System.out.println("getIssueCategory");
+		System.out.println("IssueCategory_Tyreplus");
 		try {
-			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianDimIssueCategory() }");
+			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianDimIssueCategory_TyrePlus()}");
 			ResultSet rs = c.executeQuery();
 			
 			while (rs.next()) {
-				FilterIssueCategory IssueCategory = new FilterIssueCategory();
-				IssueCategory.setIssueCategory(rs.getString("IssueCategory"));
-				IssueCategory.setIssueCategoryID(rs.getInt("IssueCategoryID"));
-				IssueCategories.add(IssueCategory);
+				FilterIssueCategory_Tyreplus IssueCategory_Tyreplus = new FilterIssueCategory_Tyreplus();
+				IssueCategory_Tyreplus.setIssueCategory(rs.getString("IssueCategory"));
+				IssueCategory_Tyreplus.setIssueCategoryID(rs.getInt("IssueCategoryID"));
+				IssueCategories_Tyreplus.add(IssueCategory_Tyreplus);
 			}
 			
 		} catch (SQLException ex) {
 			System.out.println(ex.toString());
 		}
 		
-		return IssueCategories;				
+		return IssueCategories_Tyreplus;				
 	}
 	
 	
 	
 	@GET
-	@Path("ProductIssueBreakdown")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<FilterProductIssue> getProductIssue() {
-		List<FilterProductIssue> ProductIssues = new ArrayList<FilterProductIssue>();
-		Connection conn = SqlServerConnectionService.getConn();
-		System.out.println("getProductIssue");
-		try {
-			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianDimProductIssueBreakdown() }");
-			ResultSet rs = c.executeQuery();
-			
-			while (rs.next()) {
-				FilterProductIssue ProductIssue = new FilterProductIssue();
-				ProductIssue.setProductIssueBreakdown(rs.getString("ProductIssueBreakdown"));
-				ProductIssue.setProductIssueBreakdownID(rs.getInt("ProductIssueBreakdownID"));
-				ProductIssues.add(ProductIssue);
-			}
-			
-		} catch (SQLException ex) {
-			System.out.println(ex.toString());
-		}
-		
-		return ProductIssues;				
-	}
-	
-	
-	
-	@GET
-	@Path("RelatedProduct")
-	@Produces(MediaType.APPLICATION_JSON)
-	public List<FilterRelatedProduct> getProduct() {
-		List<FilterRelatedProduct> RelatedProducts = new ArrayList<FilterRelatedProduct>();
-		Connection conn = SqlServerConnectionService.getConn();
-		System.out.println("getRelatedProduct");
-		try {
-			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianDimRelatedProduct() }");
-			ResultSet rs = c.executeQuery();
-			
-			while (rs.next()) {
-				FilterRelatedProduct RelatedProduct = new FilterRelatedProduct();
-				RelatedProduct.setRelatedProduct(rs.getString("RelatedProduct"));
-				RelatedProduct.setRelatedProductID(rs.getInt("RelatedProductID"));
-				RelatedProducts.add(RelatedProduct);
-			}
-			
-		} catch (SQLException ex) {
-			System.out.println(ex.toString());
-		}
-		
-		return RelatedProducts;				
-	}
-	
-	
-	
-	
-	
-	
-	@GET
-	@Path("/report/{start}/{end}/{IssueGrade}/{Channel}/{IssueCategory}/{ProductIssueBreakdown}/{RelatedProduct}")
+	@Path("/reportdgtyreplus/{start}/{end}/{FilterIssueGrade_TyrePlus}/{Channel_TyrePlus}/{IssueCategory_Tyreplus}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Report> getReport(@PathParam("start") String start, 
-			@PathParam("end") String end, @PathParam("IssueGrade") String IssueGrade,  @PathParam("Channel") String Channel, @PathParam("IssueCategory") String IssueCategory,@PathParam("ProductIssueBreakdown") String ProductIssueBreakdown,@PathParam("RelatedProduct") String RelatedProduct) {
+			@PathParam("end") String end, 	@PathParam("FilterIssueGrade_TyrePlus") String FilterIssueGrade_TyrePlus , @PathParam("Channel_TyrePlus") String Channel_TyrePlus,  @PathParam("IssueCategory_Tyreplus") String IssueCategory_Tyreplus) {
 		List<Report> reports = new ArrayList<Report>();
 		Connection conn = SqlServerConnectionService.getConn();
 		System.out.println("Report from " + start + " to " + end);
 		try {
-			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianReport(?,?,?,?,?,?,?) }");
+			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianReport_TyrePlus(?,?,?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
 			c.setDate(2, Date.valueOf(end));
-			c.setString(3, String.valueOf(IssueGrade));
-			c.setString(4, String.valueOf(Channel));
-			c.setString(5, String.valueOf(IssueCategory));
-			c.setString(6, String.valueOf(ProductIssueBreakdown));
-			c.setString(7, String.valueOf(RelatedProduct));
-			
+			c.setString(3, String.valueOf(FilterIssueGrade_TyrePlus));
+			c.setString(4, String.valueOf(Channel_TyrePlus));
+			c.setString(5, String.valueOf(IssueCategory_Tyreplus));
 			ResultSet rs = c.executeQuery();
 			
 			while (rs.next()) {
@@ -209,17 +145,17 @@ public class DailyGuardianRestFul {
 				reports.add(report);
 			}
 		} catch (SQLException ex) {
-			System.out.println(ex.getStackTrace().toString());
+			
 		}
 
 		return reports;
 	}
 	
 	@GET
-	@Path("/issuebreakdown/{start}/{end}/{IssueGrade}/{Channel}/{IssueCategory}/{ProductIssueBreakdown}/{RelatedProduct}")
+	@Path("/issuebreakdowndgtyreplus/{start}/{end}/{FilterIssueGrade_TyrePlus}/{Channel_TyrePlus}/{IssueCategory_Tyreplus}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public IssueBreakdown getIssueBreakdown(@PathParam("start") String start, 
-			@PathParam("end") String end , @PathParam("IssueGrade") String IssueGrade,  @PathParam("Channel") String Channel, @PathParam("IssueCategory") String IssueCategory,@PathParam("ProductIssueBreakdown") String ProductIssueBreakdown,@PathParam("RelatedProduct") String RelatedProduct) {
+			@PathParam("end") String end ,	@PathParam("FilterIssueGrade_TyrePlus") String FilterIssueGrade_TyrePlus , @PathParam("Channel_TyrePlus") String Channel_TyrePlus,  @PathParam("IssueCategory_Tyreplus") String IssueCategory_Tyreplus) {
 		IssueBreakdown issueBreakdown = new IssueBreakdown();
 		Connection conn = SqlServerConnectionService.getConn();
 		List<String> issueBreakdowns = new ArrayList<String>();
@@ -228,14 +164,12 @@ public class DailyGuardianRestFul {
 		List<ValueNamePair> pairs = new ArrayList<ValueNamePair>();
 		
 		try {
-			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianProductIssueBreakdown(?,?,?,?,?,?,?) }");
+			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianProductIssueBreakdown(?,?,?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
 			c.setDate(2, Date.valueOf(end));
-			c.setString(3, String.valueOf(IssueGrade));
-			c.setString(4, String.valueOf(Channel));
-			c.setString(5, String.valueOf(IssueCategory));
-			c.setString(6, String.valueOf(ProductIssueBreakdown));
-			c.setString(7, String.valueOf(RelatedProduct));
+			c.setString(3, String.valueOf(FilterIssueGrade_TyrePlus));
+			c.setString(4, String.valueOf(Channel_TyrePlus));
+			c.setString(5, String.valueOf(IssueCategory_Tyreplus));
 			
 			ResultSet rs = c.executeQuery();
 			
@@ -254,7 +188,7 @@ public class DailyGuardianRestFul {
 				percent.add(rs.getBigDecimal("Percent"));
 			}
 		} catch (SQLException ex) {
-			System.out.println(ex.getStackTrace().toString());
+			
 		}
 		
 		issueBreakdown.setBreakdown(issueBreakdowns);
@@ -265,10 +199,10 @@ public class DailyGuardianRestFul {
 	}
 	
 	@GET
-	@Path("/issuecategory/{start}/{end}/{IssueGrade}/{Channel}/{IssueCategory}/{ProductIssueBreakdown}/{RelatedProduct}")
+	@Path("/issuecategorydgtyreplus/{start}/{end}/{FilterIssueGrade_TyrePlus}/{Channel_TyrePlus}/{IssueCategory_Tyreplus}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public IssueCategory getIssueCategory(@PathParam("start") String start, 
-			@PathParam("end") String end  , @PathParam("IssueGrade") String IssueGrade,  @PathParam("Channel") String Channel, @PathParam("IssueCategory") String IssueCategory,@PathParam("ProductIssueBreakdown") String ProductIssueBreakdown,@PathParam("RelatedProduct") String RelatedProduct) {
+			@PathParam("end") String end ,	@PathParam("FilterIssueGrade_TyrePlus") String FilterIssueGrade_TyrePlus , @PathParam("Channel_TyrePlus") String Channel_TyrePlus,  @PathParam("IssueCategory_Tyreplus") String IssueCategory_Tyreplus) {
 		IssueCategory issueCategory = new IssueCategory();
 		Connection conn = SqlServerConnectionService.getConn();
 		List<String> issueGrades = new ArrayList<String>();
@@ -277,15 +211,12 @@ public class DailyGuardianRestFul {
 		List<ValueNamePair> pairs = new ArrayList<ValueNamePair>();
 		
 		try {
-			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianIssueCategory(?,?,?,?,?,?,?) }");
+			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianIssueCategory_TyrePlus(?,?,?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
 			c.setDate(2, Date.valueOf(end));
-			c.setString(3, String.valueOf(IssueGrade));
-			c.setString(4, String.valueOf(Channel));
-			c.setString(5, String.valueOf(IssueCategory));
-			c.setString(6, String.valueOf(ProductIssueBreakdown));
-			c.setString(7, String.valueOf(RelatedProduct));
-			
+			c.setString(3, String.valueOf(FilterIssueGrade_TyrePlus));
+			c.setString(4, String.valueOf(Channel_TyrePlus));
+			c.setString(5, String.valueOf(IssueCategory_Tyreplus));
 			ResultSet rs = c.executeQuery();
 			
 			while (rs.next()) {
@@ -303,7 +234,7 @@ public class DailyGuardianRestFul {
 				percent.add(rs.getBigDecimal("Percent"));
 			}
 		} catch (SQLException ex) {
-			System.out.println(ex.getStackTrace().toString());
+			
 		}
 		
 		issueCategory.setCategory(issueGrades);
@@ -313,11 +244,11 @@ public class DailyGuardianRestFul {
 		return issueCategory;
 	}
 	
-	@GET
-	@Path("/issuegrade/{start}/{end}/{IssueGrade}/{Channel}/{IssueCategory}/{ProductIssueBreakdown}/{RelatedProduct}")
+	@GET    
+	@Path("/issuegradedgtyreplus/{start}/{end}/{FilterIssueGrade_TyrePlus}/{Channel_TyrePlus}/{IssueCategory_Tyreplus}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public IssueGrade getIssueGrade(@PathParam("start") String start, 
-			@PathParam("end") String end  , @PathParam("IssueGrade") String IssueGrade,  @PathParam("Channel") String Channel, @PathParam("IssueCategory") String IssueCategory,@PathParam("ProductIssueBreakdown") String ProductIssueBreakdown,@PathParam("RelatedProduct") String RelatedProduct) {
+			@PathParam("end") String end ,	@PathParam("FilterIssueGrade_TyrePlus") String FilterIssueGrade_TyrePlus , @PathParam("Channel_TyrePlus") String Channel_TyrePlus,  @PathParam("IssueCategory_Tyreplus") String IssueCategory_Tyreplus) {
 		IssueGrade issueGrade = new IssueGrade();
 		Connection conn = SqlServerConnectionService.getConn();
 		List<String> issueGrades = new ArrayList<String>();
@@ -326,14 +257,12 @@ public class DailyGuardianRestFul {
 		List<ValueNamePair> pairs = new ArrayList<ValueNamePair>();
 		
 		try {
-			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianIssueGrade(?,?,?,?,?,?,?) }");
+			CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianIssueGrade_TyrePlus(?,?,?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
 			c.setDate(2, Date.valueOf(end));
-			c.setString(3, String.valueOf(IssueGrade));
-			c.setString(4, String.valueOf(Channel));
-			c.setString(5, String.valueOf(IssueCategory));
-			c.setString(6, String.valueOf(ProductIssueBreakdown));
-			c.setString(7, String.valueOf(RelatedProduct));
+			c.setString(3, String.valueOf(FilterIssueGrade_TyrePlus));
+			c.setString(4, String.valueOf(Channel_TyrePlus));
+			c.setString(5, String.valueOf(IssueCategory_Tyreplus));
 			
 			ResultSet rs = c.executeQuery();
 			
@@ -352,7 +281,7 @@ public class DailyGuardianRestFul {
 				percent.add(rs.getBigDecimal("Percent"));
 			}
 		} catch (SQLException ex) {
-			System.out.println(ex.getStackTrace().toString());
+			
 		}
 		
 		issueGrade.setIssueGrade(issueGrades);
@@ -363,10 +292,10 @@ public class DailyGuardianRestFul {
 	}
 	
     @GET
-    @Path("/issueplatform/{start}/{end}/{IssueGrade}/{Channel}/{IssueCategory}/{ProductIssueBreakdown}/{RelatedProduct}")
+    @Path("/issueplatformdgtyreplus/{start}/{end}/{FilterIssueGrade_TyrePlus}/{Channel_TyrePlus}/{IssueCategory_Tyreplus}")
     @Produces(MediaType.APPLICATION_JSON)
     public IssuePlatform getIssuePlatform(@PathParam("start") String start, 
-    		@PathParam("end") String end , @PathParam("IssueGrade") String IssueGrade,  @PathParam("Channel") String Channel, @PathParam("IssueCategory") String IssueCategory,@PathParam("ProductIssueBreakdown") String ProductIssueBreakdown,@PathParam("RelatedProduct") String RelatedProduct) {
+    		@PathParam("end") String end ,	@PathParam("FilterIssueGrade_TyrePlus") String FilterIssueGrade_TyrePlus , @PathParam("Channel_TyrePlus") String Channel_TyrePlus,  @PathParam("IssueCategory_Tyreplus") String IssueCategory_Tyreplus) {
     	IssuePlatform issuePlatform = new IssuePlatform();
     	Connection conn = SqlServerConnectionService.getConn();
     	List<String> platforms = new ArrayList<String>();
@@ -374,14 +303,12 @@ public class DailyGuardianRestFul {
     	List<BigDecimal> percent = new ArrayList<BigDecimal>();
     	List<ValueNamePair> pairs = new ArrayList<ValueNamePair>();
     	try{
-    		CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianIssuePlatform(?,?,?,?,?,?,?) }");
+    		CallableStatement c = conn.prepareCall("{call mi.getDailyGuardianIssuePlatform_TyrePlus(?,?,?,?,?) }");
 	        c.setDate(1, Date.valueOf(start));
 	        c.setDate(2, Date.valueOf(end));
-	        c.setString(3, String.valueOf(IssueGrade));
-			c.setString(4, String.valueOf(Channel));
-			c.setString(5, String.valueOf(IssueCategory));
-			c.setString(6, String.valueOf(ProductIssueBreakdown));
-			c.setString(7, String.valueOf(RelatedProduct));
+			c.setString(3, String.valueOf(FilterIssueGrade_TyrePlus));
+			c.setString(4, String.valueOf(Channel_TyrePlus));
+			c.setString(5, String.valueOf(IssueCategory_Tyreplus));
 			
 	        ResultSet rs = c.executeQuery();
 	        
@@ -402,7 +329,7 @@ public class DailyGuardianRestFul {
 	        }
 	        c.close();
     	} catch (SQLException ex) {
-    		System.out.println(ex.getStackTrace().toString());
+    		
     	}
     	
     	issuePlatform.setPlatform(platforms);
@@ -414,11 +341,10 @@ public class DailyGuardianRestFul {
     }
     
     @GET
-    @Path("/weeklyissuetrend/{start}/{end}/{IssueGrade}/{Channel}/{IssueCategory}/{ProductIssueBreakdown}/{RelatedProduct}")
+    @Path("/weeklyissuetrenddgtyreplus/{start}/{end}/{FilterIssueGrade_TyrePlus}/{Channel_TyrePlus}/{IssueCategory_Tyreplus}")
     @Produces(MediaType.APPLICATION_JSON)
     public WeeklyIssueTrend getWeeklyIssueTrend(@PathParam("start") String start, 
-    		@PathParam("end") String end, 	@PathParam("IssueGrade") String IssueGrade, @PathParam("Channel") String Channel,  @PathParam("IssueCategory") String IssueCategory,
-    		 @PathParam("ProductIssueBreakdown") String ProductIssueBreakdown, @PathParam("RelatedProduct") String RelatedProduct) {
+    		@PathParam("end") String end ,	@PathParam("FilterIssueGrade_TyrePlus") String FilterIssueGrade_TyrePlus , @PathParam("Channel_TyrePlus") String Channel_TyrePlus,  @PathParam("IssueCategory_Tyreplus") String IssueCategory_Tyreplus) {
     	Connection conn = SqlServerConnectionService.getConn();
     	WeeklyIssueTrend wiTrend = new WeeklyIssueTrend();
     	List<String> dates = new ArrayList<String>();
@@ -426,16 +352,15 @@ public class DailyGuardianRestFul {
     	List<Integer> crisisIssue = new ArrayList<Integer>();
     	CallableStatement c = null;
 		try {
-			c = conn.prepareCall("{call mi.getDailyGuardianWeeklyIssueTrend(?,?,?,?,?,?,?) }");
+			c = conn.prepareCall("{call mi.getDailyGuardianWeeklyIssueTrend_TyrePlus(?,?,?,?,?) }");
 	        
 	        c.setDate(1, Date.valueOf(start));
 	        c.setDate(2, Date.valueOf(end));
-	        c.setString(3, String.valueOf(IssueGrade));
-	        c.setString(4, String.valueOf(Channel));
-	        c.setString(5, String.valueOf(IssueCategory));
-	        c.setString(6, String.valueOf(ProductIssueBreakdown));
-	        c.setString(7, String.valueOf(RelatedProduct));
-	    
+	        c.setString(3, String.valueOf(FilterIssueGrade_TyrePlus));
+			c.setString(4, String.valueOf(Channel_TyrePlus));
+			c.setString(5, String.valueOf(IssueCategory_Tyreplus));
+			
+			
 	        ResultSet rs = c.executeQuery();
 	        
 	        while (rs.next()) {
@@ -450,7 +375,7 @@ public class DailyGuardianRestFul {
 	        }
 	        c.close();
 		} catch (SQLException ex) {
-			System.out.println(ex.getStackTrace().toString());
+			
 		}
 		
 		wiTrend.setDates(dates);

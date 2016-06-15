@@ -36,11 +36,11 @@ public class EcomRestFul {
 		Connection conn = SqlServerConnectionService.getConn();
 		System.out.println(String.format("getEcomTuhu: [%1$s, %2$s, %3$s, %4$s]", start, end, id, score));
 		try {
-			CallableStatement c = conn.prepareCall("{call mi.getEcomRecordsJD(?,?,?,?) }");
+			CallableStatement c = conn.prepareCall("{call mi.getEcomRecordsTuhu(?,?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
 			c.setDate(2, Date.valueOf(end));
 			c.setInt(3,  Integer.valueOf(id));
-			c.setInt(4, Integer.valueOf(score));
+			c.setString(4, String.valueOf(score));
 			ResultSet rs = c.executeQuery();
 			
 			while (rs.next()) {
@@ -90,11 +90,11 @@ public class EcomRestFul {
 		Connection conn = SqlServerConnectionService.getConn();
 		System.out.println(String.format("getEcomTmall: [%1$s, %2$s, %3$s, %4$s]", start, end, id, score));
 		try {
-			CallableStatement c = conn.prepareCall("{call mi.getEcomRecordsJD(?,?,?,?) }");
+			CallableStatement c = conn.prepareCall("{call mi.getEcomRecordsTmall(?,?,?,?) }");
 			c.setDate(1, Date.valueOf(start));
 			c.setDate(2, Date.valueOf(end));
 			c.setInt(3,  Integer.valueOf(id));
-			c.setInt(4, Integer.valueOf(score));
+			c.setString(4, String.valueOf(score));
 			ResultSet rs = c.executeQuery();
 			
 			while (rs.next()) {
@@ -149,7 +149,7 @@ public class EcomRestFul {
 			c.setDate(1, Date.valueOf(start));
 			c.setDate(2, Date.valueOf(end));
 			c.setInt(3,  Integer.valueOf(id));
-			c.setInt(4, Integer.valueOf(score));
+			c.setString(4, String.valueOf(score));
 			ResultSet rs = c.executeQuery();
 			
 			while (rs.next()) {
@@ -202,7 +202,7 @@ public class EcomRestFul {
 			
 			while (rs.next()) {
 				EcomScore score = new EcomScore();
-				score.setScore(rs.getInt("Score"));
+				score.setScore(rs.getString("Score"));
 				scores.add(score);
 			}
 			

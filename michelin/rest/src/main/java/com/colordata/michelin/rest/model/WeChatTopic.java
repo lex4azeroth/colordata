@@ -8,6 +8,8 @@ public class WeChatTopic {
 	private String content;
 	private int readNum;
 	private int likeNum;
+	private String URL;
+	
 	public int getId() {
 		return id;
 	}
@@ -43,6 +45,12 @@ public class WeChatTopic {
 	}
 	public void setLikeNum(int likeNum) {
 		this.likeNum = likeNum;
+	}
+	public String getURL() {
+		return URL;
+	}
+	public void setURL(String URL) {
+		this.URL = URL;
 	}
 	
 }
