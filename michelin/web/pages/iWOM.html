@@ -1,361 +1,331 @@
 ﻿<div class="full-content-wrapper" id="iwom">
-     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h2>
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h2>
         Michelin IWOM
         <small></small>
       </h2>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">IWOM</li>
-      </ol>
-    </section>
-    
-    <section class="full-content-header">
-     
-    
-                
-             
-            
-          </section>
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li class="active">IWOM</li>
+		</ol>
+	</section>
 
-    <!-- Main content -->
-    <section class="content">
-      
-      
-       <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Filter</h3>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                  <label>Brand</label>
-                  <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected">1</option>
+	<section class="full-content-header">
+
+	</section>
+
+	<!-- Main content -->
+	<section class="content">
+
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Filter</h3>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Brand</label>
+								<select id="brand" class="form-control select2" style="width: 100%;">
+                    <!--<option selected="selected">1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5</option>
+                    <option>5</option>-->
                     
-                  </select>
-                </div>
-                
-                
-                <div class="form-group">
-                  <label>Sentiment</label>
-                  <select class="form-control select2" style="width: 100%;">
-                    <option selected="selected">1</option>
+                  				</select>
+							</div>
+
+							<div class="form-group">
+								<label>Sentiment</label>
+								<select id="sentiment" class="form-control select2" style="width: 100%;">
+                    <!--<option selected="selected">1</option>
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
-                    <option>5</option>
+                    <option>5</option>-->
                     
-                  </select>
-                </div>
-                
-                
-             </div>
-               <div class="col-md-3">  
-                <div class="form-group">
-                  <label>Channel</label>
-                  <select class="form-control select2" style="width: 100%;">
+                  				</select>
+							</div>
+
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Channel</label>
+								<select id="channel" class="form-control select2" style="width: 100%;">
+				                </select>
+								<!--<select class="form-control select2" style="width: 100%;">
                     <option selected="selected">BBS</option>
                     <option>Weibo</option>
                     <option>Wechat</option>
                     <option>ComplantSites</option>
                     <option>News</option>
                     <option>VideoSites</option>
-                  </select>
-                </div>
-                
-                
-                 <!--daterange-->
-          
-          <div class="form-group">
-               
-                <label>Date Range:</label>
+                  </select>-->
+							</div>
 
-                <div class="input-group">
-                  <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+							<!--daterange-->
+
+							<div class="form-group">
+
+								<label>Date Range:</label>
+
+								<div class="input-group">
+									<button type="button" class="btn btn-default pull-right" id="daterange-btn">
                     <span>
                       <i class="fa fa-calendar"></i> Date range picker
                     </span>
                     <i class="fa fa-caret-down"></i>
                   </button>
-                </div>
-             </div>
-             
-              
-              </div>
-               <div class="col-md-3">
-                  <div class="form-group">
-                    <label>Product</label>
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">1</option>
+								</div>
+							</div>
+
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Product</label>
+								<select id="product" class="form-control select2" style="width: 100%;">
+                      <!--<option selected="selected">1</option>
                       <option>2</option>
                       <option>3</option>
                       <option>4</option>
-                      <option>5</option>
+                      <option>5</option>-->
+                      
+                    				</select>
+							</div>
+							
+							<div class="form-group">
+								<label>Platform</label>
+								<select id="platform" class="form-control select2" style="width: 100%;">
+                  				</select>
+							</div>
+						</div>
+						<!-- /.form-group -->
+
+						<!-- /.form-group -->
+
+						<!-- /.col -->
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Topic</label>
+								<select id="topic" class="form-control select2" style="width: 100%;">
+                      <!--<option selected="selected">Restaurant</option>
+                      <option>Product</option>-->
                       
                     </select>
-                  </div>
-                </div>
-              <!-- /.form-group -->
-         
-              <!-- /.form-group -->
-           
-            <!-- /.col -->
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Topic</label>
-                    <select class="form-control select2" style="width: 100%;">
-                      <option selected="selected">Restaurant</option>
-                      <option>Product</option>
-                      
-                    </select>
-                </div>
-                
-                
-               
-             
-             </div>  <!-- /.form-group -->
-          
-          
-          
-          
-              <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-        </div>
-      
-      </div> 
-      
-      
-      
-      
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-      </div>
+							</div>
 
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-12 connectedSortable">
-          <!-- Custom tabs (Charts with tabs)-->
-          
-          <!--echart: weekly issue trend -->
-           <div class="nav-tabs-custom">
-            <!-- Tabs within a box -->
-            <ul class="nav nav-tabs pull-right">
-              <li class="active"><a href="#echart_K1BuzzNSRTopic1" data-toggle="tab">Tyre Brand</a></li>
-              <li><a href="#echart_K1BuzzNSRTopic2" data-toggle="tab">Product</a></li>
-              <li class="pull-left header"><i class="fa fa-inbox"></i> Michellin</li>
-            </ul>
-            <div class="tab-content no-padding">
-              <!-- Morris chart - Sales -->
-              <div class="chart tab-pane active" id="echart_K1BuzzNSRTopic1" style="position: relative; height: 1000px;">
-                 <div id="echart_main1" style="height:330px"></div>
-                  <div id="echart_main2" style="height:330px"></div>
-                   <div id="echart_main3" style="height:330px"></div>
-              </div>
-              <div class="chart tab-pane" id="echart_K1BuzzNSRTopic2" style="position: relative; height: 1000px;">
-                   <div id="echart_main4" style="height:330px"></div>
-                    <div id="echart_main5" style="height:330px"></div>
-              </div>
-            </div>
-          </div>
-          
-          
-          
-          
-          
-        
-          
+						</div>
+						<!-- /.form-group -->
 
-        </section>
-        <!-- /.Left col -->
-        <!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-6 connectedSortable">
-          
-          
-          
-          
-          <!--echart:channel-->
-          <!-- /.Left col -->
-              <div class="box box-primary">
-                  <div class="box-header with-border">
-                    <h3 class="box-title">Channel</h3>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
 
-                    <div class="box-tools pull-right">
-                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+		</div>
+
+		<!-- Small boxes (Stat box) -->
+		<div class="row">
+		</div>
+
+		<!-- Main row -->
+		<div class="row">
+			<!-- Left col -->
+			<section class="col-lg-12 connectedSortable">
+				<!-- Custom tabs (Charts with tabs)-->
+
+				<!--echart: weekly issue trend -->
+				<div class="nav-tabs-custom">
+					<!-- Tabs within a box -->
+					<ul class="nav nav-tabs pull-right">
+						<li class="active"><a href="#echart_K1BuzzNSRTopic1" data-toggle="tab">Tyre Brand</a></li>
+						<li><a href="#echart_K1BuzzNSRTopic2" data-toggle="tab">Product</a></li>
+						<li class="pull-left header"><i class="fa fa-inbox"></i> Michellin</li>
+					</ul>
+					<div class="tab-content no-padding">
+						<!-- Morris chart - Sales -->
+						<div class="chart tab-pane active" id="echart_K1BuzzNSRTopic1" style="position: relative; height: 1000px;">
+							<div id="echart_main1" style="height:330px"></div>
+							<div id="echart_main2" style="height:330px"></div>
+							<div id="echart_main3" style="height:330px"></div>
+						</div>
+						<div class="chart tab-pane" id="echart_K1BuzzNSRTopic2" style="position: relative; height: 1000px;">
+							<div id="echart_main4" style="height:330px"></div>
+							<div id="echart_main5" style="height:330px"></div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			<!-- /.Left col -->
+			<!-- right col (We are only adding the ID to make the widgets sortable)-->
+			<section class="col-lg-6 connectedSortable">
+
+				<!--echart:channel-->
+				<!-- /.Left col -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Channel</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                       </button>
-                      <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                    </div>
-                  </div>
-                  <div class="box-body">
-                    <div class="chart">
-                        <div id="echart_channel" style="height:230px"></div>
-                    <!-- <canvas id="barChart" style="height:230px"></canvas>-->
-                    </div>
-                  </div> 
-              </div>
-              
-              
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_channel" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
 
-          <!--echart:issue platform-->
-          <!-- /.Left col -->
-              <div class="box box-primary">
-                  <div class="box-header with-border">
-                    <h3 class="box-title">Positive Word Cloud</h3>
+				<!--echart:issue platform-->
+				<!-- /.Left col -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Positive Word Cloud</h3>
 
-                    <div class="box-tools pull-right">
-                      <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                       </button>
-                      <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                    </div>
-                  </div>
-                  <div class="box-body">
-                    <div class="chart">
-                        <div id="wordcloud_p" style="height:230px"></div>
-                    <!-- <canvas id="barChart" style="height:230px"></canvas>-->
-                    </div>
-                  </div> 
-              </div>
-            </section>
-            
-            
-            
-         <section class="col-lg-6 connectedSortable">
-           
-           
-           
-            <!--echart:issue platform-->
-          <!-- /.Left col -->
-          <div class="box box-primary">
-              <div class="box-header with-border">
-                <h3 class="box-title">Topic</h3>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="wordcloud_p" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
+			</section>
 
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+			<section class="col-lg-6 connectedSortable">
+
+				<!--echart:issue platform-->
+				<!-- /.Left col -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Topic</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-              </div>
-              <div class="box-body">
-                <div class="chart">
-                    <div id="echart_topic" style="height:230px"></div>
-                <!-- <canvas id="barChart" style="height:230px"></canvas>-->
-                </div>
-              </div> 
-          </div>
-          
-          
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_topic" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
 
-          <!--echart:issue platform-->
-          <!-- /.Left col -->
-          <div class="box box-primary">
-              <div class="box-header with-border">
-                <h3 class="box-title">Negative Word Cloud</h3>
+				<!--echart:issue platform-->
+				<!-- /.Left col -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Negative Word Cloud</h3>
 
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-              </div>
-              <div class="box-body">
-                <div class="chart">
-                    <div id="wordcloud_n" style="height:230px"></div>
-                <!-- <canvas id="barChart" style="height:230px"></canvas>-->
-                </div>
-              </div> 
-          </div>
-         </section>
-            
-            
-            
-         <section class="col-lg-12 connectedSortable">
-           <div class="box box-primary">
-            <div class="box-header">
-              <h3 class="box-title">Michelin Engineer Online Topic Posts-Knowledge sharing Posts</h3>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="wordcloud_n" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
+			</section>
 
-              <div class="box-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+			<section class="col-lg-12 connectedSortable">
+				<div class="box box-primary">
+					<div class="box-header">
+						<h3 class="box-title">Michelin Engineer Online Topic Posts-Knowledge sharing Posts</h3>
 
-                  <div class="input-group-btn">
-                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- /.box-header -->
-            <div class="box-body table-responsive no-padding">
-              <table class="table table-hover">
-                <tbody>
-                <tr>
-                  <th>Sites</th>
-                  <th>Forum</th>
-                  <th>Subject</th>
-                  <th>link</th>
-                  <th>Topic Category</th>
-                  <th>PV</th>
-                  <th>Reply</th>
-                </tr>
-                
-                <tr>
-                  <td>Autohome</td>
-                  <td>轮胎论坛/奥迪A6L论坛 </td>
-                  <td>【米其林工程师在线】挑选购买轮胎的注意事项</td>
-                  <td><a href="http://www.w3school.com.cn">Link</a></td>
-                  <td><span class="label label-info">Tire purchase</span></td>
-                  <td>8,501</td>
-                  <td>198</td>
-                </tr>
-                <tr>
-                  <td>Autohome</td>
-                  <td>轮胎论坛/奥迪A6L论坛 </td>
-                  <td>【米其林工程师在线】挑选购买轮胎的注意事项</td>
-                  <td><a href="http://www.w3school.com.cn">Link</a></td>
-                  <td><span class="label label-danger">Tire purchase</span></td>
-                  <td>8,501</td>
-                  <td>198</td>
-                </tr>
-                <tr>
-                   <td>Autohome</td>
-                  <td>轮胎论坛/奥迪A6L论坛 </td>
-                  <td>【米其林工程师在线】挑选购买轮胎的注意事项</td>
-                  <td><a href="http://www.w3school.com.cn">Link</a></td>
-                  <td><span class="label label-warning">Tire purchase</span></td>
-                  <td>8,501</td>
-                  <td>198</td>
-                </tr>
-                <tr>
-                    <td>Autohome</td>
-                  <td>轮胎论坛/奥迪A6L论坛 </td>
-                  <td>【米其林工程师在线】挑选购买轮胎的注意事项</td>
-                  <td><a href="http://www.w3school.com.cn">Link</a></td>
-                  <td><span class="label label-success">Tire purchase</span></td>
-                  <td>8,501</td>
-                  <td>198</td>
-                </tr>
-              </tbody></table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-        
-          </section>
+						<div class="box-tools">
+							<div class="input-group input-group-sm" style="width: 150px;">
+								<input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
-        </div>
-      
-      
-      
-    </section>
-    <!-- /.content -->
-  </div>
+								<div class="input-group-btn">
+									<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- /.box-header -->
+					<div class="box-body table-responsive no-padding">
+						<table class="table table-hover">
+							<tbody>
+								<tr>
+									<th>Sites</th>
+									<th>Forum</th>
+									<th>Subject</th>
+									<th>link</th>
+									<th>Topic Category</th>
+									<th>PV</th>
+									<th>Reply</th>
+								</tr>
+
+								<tr>
+									<td>Autohome</td>
+									<td>轮胎论坛/奥迪A6L论坛 </td>
+									<td>【米其林工程师在线】挑选购买轮胎的注意事项</td>
+									<td><a href="http://www.w3school.com.cn">Link</a></td>
+									<td><span class="label label-info">Tire purchase</span></td>
+									<td>8,501</td>
+									<td>198</td>
+								</tr>
+								<tr>
+									<td>Autohome</td>
+									<td>轮胎论坛/奥迪A6L论坛 </td>
+									<td>【米其林工程师在线】挑选购买轮胎的注意事项</td>
+									<td><a href="http://www.w3school.com.cn">Link</a></td>
+									<td><span class="label label-danger">Tire purchase</span></td>
+									<td>8,501</td>
+									<td>198</td>
+								</tr>
+								<tr>
+									<td>Autohome</td>
+									<td>轮胎论坛/奥迪A6L论坛 </td>
+									<td>【米其林工程师在线】挑选购买轮胎的注意事项</td>
+									<td><a href="http://www.w3school.com.cn">Link</a></td>
+									<td><span class="label label-warning">Tire purchase</span></td>
+									<td>8,501</td>
+									<td>198</td>
+								</tr>
+								<tr>
+									<td>Autohome</td>
+									<td>轮胎论坛/奥迪A6L论坛 </td>
+									<td>【米其林工程师在线】挑选购买轮胎的注意事项</td>
+									<td><a href="http://www.w3school.com.cn">Link</a></td>
+									<td><span class="label label-success">Tire purchase</span></td>
+									<td>8,501</td>
+									<td>198</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<!-- /.box-body -->
+				</div>
+				<!-- /.box -->
+
+			</section>
+
+		</div>
+
+	</section>
+	<!-- /.content -->
+</div>

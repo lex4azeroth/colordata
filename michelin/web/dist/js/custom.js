@@ -70,6 +70,7 @@ function loadIWOM() {
 	//	loadIWOM2();
 	$("#container").load("pages/iWOM.html #iwom", null, function() {
 		// echart K1BuzzNSRTopic
+		dataRangePicker();
 
 		$("#loadDG").removeClass("active");
 		$("#loadIWOM").addClass("active");
@@ -77,6 +78,12 @@ function loadIWOM() {
 		$("#loadDG_T").removeClass("active");
 		$("#loadIWOM_T").removeClass("active");
 		$("#loadE_T").removeClass("active");
+		
+		
+		
+		bindIWOMFilters();
+		
+		
 
 		var axisData = [
 			"1-May", "2-May", "3-May", "4-May", "5-May", "6-May",
