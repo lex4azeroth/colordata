@@ -25,6 +25,7 @@ import com.colordata.michelin.rest.model.IssueCategory;
 import com.colordata.michelin.rest.model.IssueGrade;
 import com.colordata.michelin.rest.model.IssuePlatform;
 import com.colordata.michelin.rest.model.Report;
+import com.colordata.michelin.rest.model.Report_DGtyreplus;
 import com.colordata.michelin.rest.model.ValueNamePair;
 import com.colordata.michelin.rest.model.WeeklyIssueTrend;
 
@@ -114,9 +115,9 @@ public class DailyGuardianRestFulTyrePlus {
 	@GET
 	@Path("/reportdgtyreplus/{start}/{end}/{FilterIssueGrade_TyrePlus}/{Channel_TyrePlus}/{IssueCategory_Tyreplus}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Report> getReport(@PathParam("start") String start, 
+	public List<Report_DGtyreplus> getReport(@PathParam("start") String start, 
 			@PathParam("end") String end, 	@PathParam("FilterIssueGrade_TyrePlus") String FilterIssueGrade_TyrePlus , @PathParam("Channel_TyrePlus") String Channel_TyrePlus,  @PathParam("IssueCategory_Tyreplus") String IssueCategory_Tyreplus) {
-		List<Report> reports = new ArrayList<Report>();
+		List<Report_DGtyreplus> reports = new ArrayList<Report_DGtyreplus>();
 		Connection conn = SqlServerConnectionService.getConn();
 		System.out.println("Report from " + start + " to " + end);
 		try {
@@ -129,11 +130,11 @@ public class DailyGuardianRestFulTyrePlus {
 			ResultSet rs = c.executeQuery();
 			
 			while (rs.next()) {
-				Report report = new Report();
+				Report_DGtyreplus report = new Report_DGtyreplus();
 				report.setRank(rs.getString("Rank"));
 				report.setIssueCategory(rs.getString("Issue Category"));
-				report.setIssue(rs.getString("Issue"));
-				report.setProductInvovled(rs.getString("Product invovled"));
+				//report.setIssue(rs.getString("Issue"));
+				//report.setProductInvovled(rs.getString("Product invovled"));
 				report.setGrade(rs.getString("Grade"));
 				report.setPvReplies(rs.getString("PV/Replies"));
 				report.setPostDate(rs.getString("Post Date"));
