@@ -96,11 +96,11 @@ function DGgetFilterData() {
 
 function DGreloadAll() {
 		var dateRange = getCurrentDateRange();		
-		//init_dg_report_tyreplus(dateRange);
+		init_dg_report_tyreplus(dateRange);
 		//init_dg_issuebreakdown_tyreplus(dateRange);
-		//init_dg_issuecategory_tyreplus(dateRange);
-		//init_dg_issuegrade_tyreplus(dateRange);
-		//init_dg_issueplatform_tyreplus(dateRange);
+		init_dg_issuecategory_tyreplus(dateRange);
+		init_dg_issuegrade_tyreplus(dateRange);
+		init_dg_issueplatform_tyreplus(dateRange);
 		init_dg_weeklyissuetrend_tyreplus(dateRange);		
 		
 }
@@ -130,11 +130,8 @@ function initReporTable_tyreplus(tableData) {
 			}, {
 				data: 'issueCategory', 
 				width: '50'
-			}, {
-				data: 'issue'
-			}, {
-				data: 'productInvovled'
-			}, {
+			}, 
+			   {
 				data: 'grade'
 			}, {
 				data: 'pvReplies'
@@ -165,12 +162,13 @@ function initReporTable_tyreplus(tableData) {
 
 
 function init_dg_report_tyreplus(data) {
-	var subURL = baseURLDGTyreplus + "report/";
+	var subURL = baseURLDGTyreplus + "reportdgtyreplus/";
 	var tableData = [];
+	var filterData = DGgetFilterData();
 	
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end,
+		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -181,14 +179,16 @@ function init_dg_report_tyreplus(data) {
 	initReporTable(tableData);
 }
 
+/*
 function init_dg_issuebreakdown_tyreplus(data) {
 	var subURL = baseURLDGTyreplus + "issuebreakdowndgtyreplus/";
 	var issueBreakdowns = [];
 	var cnts = [];
 	var pairs = [];
+	var filterData = DGgetFilterData();
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end,
+		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -198,7 +198,7 @@ function init_dg_issuebreakdown_tyreplus(data) {
 		}
 	});
 
-	var myChart5 = echarts.init(document.getElementById('echart_issuebreakdown'), 'macarons');
+	var myChart5 = echarts.init(document.getElementById('echart_issuebreakdown_tyreplus'), 'macarons');
 	option5 = {
 		title: [{
 			text: 'Product Issue Breakdown',
@@ -258,14 +258,18 @@ function init_dg_issuebreakdown_tyreplus(data) {
 	myChart5.setOption(option5);
 }
 
+
+*/
+
 function init_dg_issuecategory_tyreplus(data) {
 	var subURL = baseURLDGTyreplus + "issuecategorydgtyreplus/";
 	var issueGrades = [];
 	var cnts = [];
 	var pairs = [];
+	var filterData = DGgetFilterData();
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end,
+		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -277,6 +281,7 @@ function init_dg_issuecategory_tyreplus(data) {
 	// ͼP4
 	var myChart4 = echarts.init(document.getElementById('echart_issuecategories'), 'macarons');
 	var option4 = {
+		/*
 		title: [{
 			text: '',
 			x: 'center'
@@ -284,6 +289,7 @@ function init_dg_issuecategory_tyreplus(data) {
 			subtext: 'Data Period: May 14 to May 20, 2016',
 			bottom: '3%'
 		}],
+		*/
 		tooltip: {
 			trigger: 'item',
 			formatter: "{b}: {c} ({d}%)"
@@ -305,9 +311,9 @@ function init_dg_issuecategory_tyreplus(data) {
 		},
 
 		legend: {
-			orient: 'horizontal',
-			left: '40%',
-			top: '80%',
+			orient: 'vertical',
+			left: '70%',
+			top: '40%',
 			data: issueCategorys
 		},
 		series: [{
@@ -344,9 +350,10 @@ function init_dg_issuegrade_tyreplus(data) {
 	var issueGrades = [];
 	var cnts = [];
 	var pairs = [];
+	var filterData = DGgetFilterData();
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end,
+		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -359,6 +366,7 @@ function init_dg_issuegrade_tyreplus(data) {
 	// ͼP2
 	var myChart2 = echarts.init(document.getElementById('echart_issueplatform'), 'macarons');
 	var option2 = {
+		/*
 		title: [{
 			text: '',
 			x: 'center'
@@ -366,7 +374,7 @@ function init_dg_issuegrade_tyreplus(data) {
 			subtext: 'Data Period: May 14 to May 20, 2016',
 			bottom: '3%'
 		}],
-
+		*/
 		tooltip: {
 			trigger: 'item',
 			formatter: "{b}: {c} ({d}%)"
@@ -418,9 +426,10 @@ function init_dg_issueplatform_tyreplus(data) {
 	var platforms = [];
 	var cnts = [];
 	var pairs = [];
+	var filterData = DGgetFilterData();
 	$.ajax({
 		type: "GET",
-		url: subURL + data.start + "/" + data.end,
+		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -432,6 +441,7 @@ function init_dg_issueplatform_tyreplus(data) {
 
 	var myChart3 = echarts.init(document.getElementById('echart_issueplatform2'), 'macarons');
 	var option3 = {
+		/*
 		title: [{
 			text: '',
 			x: 'center'
@@ -439,6 +449,7 @@ function init_dg_issueplatform_tyreplus(data) {
 			subtext: 'Data Period: May 14 to May 20, 2016',
 			bottom: '3%'
 		}],
+		*/
 		tooltip: {
 			trigger: 'item',
 			formatter: "{b}: {c} ({d}%)"
@@ -470,7 +481,7 @@ function init_dg_issueplatform_tyreplus(data) {
 			type: 'pie',
 			radius: ['35%', '45%'],
 			center: ['40%', '50%'],
-			avoidLabelOverlap: false,
+			avoidLabelOverlap: true,
 			label: {
 				normal: {
 					show: true,
@@ -494,7 +505,7 @@ function init_dg_issueplatform_tyreplus(data) {
 	myChart3.setOption(option3);
 }
 
-function init_dg_weeklyissuetrend_tyreplus(data1) {
+function init_dg_weeklyissuetrend_tyreplus(data) {
 	var dates = [];
 	var negativeIssue = [];
 	var crisisIssue = [];
@@ -503,7 +514,7 @@ function init_dg_weeklyissuetrend_tyreplus(data1) {
 
 	$.ajax({
 		type: "GET",
-		url: subURL + data1.start + "/" + data1.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory,
+		url: subURL + data.start + "/" + data.end + "/" + filterData.IssueGrade + "/" + filterData.Channel+ "/" + filterData.IssueCategory,
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
@@ -513,7 +524,7 @@ function init_dg_weeklyissuetrend_tyreplus(data1) {
 		}
 	});
 
-	var myChart = echarts.init(document.getElementById('echart_weeklyissuetrend'), 'macarons');
+	var myChart = echarts.init(document.getElementById('echart_weeklyissuetrend_tyreplus'), 'macarons');
 	$.ajaxSettings.async = false;
 	var option = {
 		title: [{

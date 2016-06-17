@@ -597,6 +597,7 @@ function init_dg_weeklyissuetrend(data) {
 			name: 'Negative Issue',
 			type: 'bar',
 			data: negativeIssue,
+			avoidLabelOverlap : true,
 			itemstyle: {
 				normal: {
 					color: '#999'

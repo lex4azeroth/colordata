@@ -74,7 +74,7 @@ function loadIWOM() {
 
 		$("#loadDG").removeClass("active");
 		$("#loadIWOM").addClass("active");
-		$("loadDHTs").removeClass("active");
+		$("#loadDHTs").removeClass("active");
 		$("#loadDG_T").removeClass("active");
 		$("#loadIWOM_T").removeClass("active");
 		$("#loadE_T").removeClass("active");
@@ -1238,7 +1238,6 @@ function initReportTable() {
 function loadDailyGuardianPage() {
 	$("#container").load("pages/DailyGuardian.html #dailyguardian", null, function() {
 		dataRangePicker();
-
 		$("#loadDG").addClass("active");
 		$("#loadIWOM").removeClass("active");
 		$("#loadDHTs").removeClass("active");
@@ -1273,7 +1272,7 @@ function loadDailyGuardian() {
 
 
 
-function loadDailyGuardian_tyreplus() {
+function loadDailyGuardian_tyreplusPage() {
 		$("#container").load("pages/DailyGuardian_TyrePlus.html #dailyguardian_tyreplus", null, function() {
 		dataRangePicker();
 		$("#loadDG").removeClass("active");
@@ -1283,22 +1282,27 @@ function loadDailyGuardian_tyreplus() {
 		$("#loadIWOM_T").removeClass("active");
 		$("#loadE_T").removeClass("active");
 		
-	 	 DGbindFilters();
-		loadDailyGuardian_tyreplusCharts();
+	 	DGbindFilters();
+		loadDailyGuardian_tyreplus();
 	
 	});
 }
 
 
-function loadDailyGuardian_tyreplusCharts(){
-		var data1 = getCurrentDateRange();
-		 
-		//init_dg_report_tyreplus(data);
+function loadDailyGuardian_tyreplus(){
+		var data = getCurrentDateRange();
+		// weekly issue trend 
+		init_dg_weeklyissuetrend_tyreplus(data);
+		init_dg_issuecategory_tyreplus(data);
+		
 		//init_dg_issuebreakdown_tyreplus(data);
 		//init_dg_issuecategory_tyreplus(data);
-		//init_dg_issuegrade_tyreplus(data);
-		//init_dg_issueplatform_tyreplus(data);  
-		init_dg_weeklyissuetrend_tyreplus(data1);
+		init_dg_issuegrade_tyreplus(data);
+		init_dg_issueplatform_tyreplus(data); 
+		init_dg_report_tyreplus(data);
+		
+		// weekly issue trend 
+		// init_dg_weeklyissuetrend_tyreplus(data);
 }
 
 function loadECommerceCharts() {
