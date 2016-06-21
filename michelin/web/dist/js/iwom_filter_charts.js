@@ -135,95 +135,32 @@ function bindIWOMFilters() {
 	
 	$('#channel').change(function() {
 		loadPlatforms();
-		reloadAll();
+		reloadIWOMAllBuzzs();
 	});
 	
 	$('#brand').change(function() {
 		loadProducts();
-		reloadAll();
+		reloadIWOMAllBuzzs();
 	});
 
 	$('#platform').change(function() {
-		loadPlatforms();
-		reloadAll();
+		reloadIWOMAllBuzzs();
 	});
 	
 	$('#product').change(function() {
-		reloadAll();
+		reloadIWOMAllBuzzs();
 	});
 
 	$('#topic').change(function() {
-		reloadAll();
+		reloadIWOMAllBuzzs();
 	});
 	
 	$('#sentiment').change(function() {
-		reloadAll();
+		reloadIWOMAllBuzzs();
 	});	
 	
 }
 
-function reloadAll() {
-		var dateRange = getCurrentDateRange();
-		
-//		init_ecom_tuhu(dateRange);
-//		
-//		init_ecom_tmall(dateRange);
-//		
-//		init_ecom_jd(dateRange);	
+function reloadIWOMAllBuzzs() {
+	loadBuzzsAndOthers();
 }
-
-//function init_ecom_tuhu(dateRange) {
-//	var subURL = ecomBaseURL + "tuhu/";
-//	var tableData = [];
-//	var filterData = getFilterData();
-//	
-//	$.ajax({
-//		type: "GET",
-//		url: subURL + dateRange.start + "/" + dateRange.end + "/" + filterData.lineId + "/" + filterData.score,
-//		async: false,
-//		dataType: "json",
-//		success: function(returnValue) {
-//			tableData = returnValue;
-//		}
-//	});
-//
-//	$('#tuhuTable').DataTable({
-//		"bDestroy": true,
-//		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#tuHuTool'>>" +
-//			"t" +
-//			"<'bottom'ip>",
-//		aaSorting: [
-//			[0, 'asc']
-//		],
-//		data: tableData,
-//		columns: [{
-//			data: 'store',
-//			width: '200'
-//		}, {
-//			data: 'productLine',
-//			width: '100'
-//		}, {
-//			data: 'productName', 
-//			render: function(data, type, row) {
-//			return '<a href=' + row.url  + ' target= "_blank">' + data + '</a>';
-//			}
-//		}, {
-//			data: 'userName'
-//		}, {
-//			data: 'score', 
-//			width: '50'
-//		}, {
-//			data: 'comment'
-//		}, {
-//			data: 'postTime', 
-//			width: '70'
-//			//render: function (data, type, row) {
-//			//	var indexOfPoint = data.indexOf('.');
-//			//	return data.substring(0, indexOfPoint);
-//			//}
-//		}], 
-//		initComplete: function() {
-//			$("#tuHuTool").append('<a>Download</a>');
-//		}
-//	});
-//}
