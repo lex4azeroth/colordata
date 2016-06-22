@@ -143,9 +143,9 @@ function initReporTable(tableData) {
 //		sDom: '<"top"iflp<"clear">>rt<"bottom"ilp<"clear">>'
 		"bDestroy": true,
 //		sDom: '<"top"f<"clear">>rt<"bottom"ip<"clear">>',
-		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#mytool'>>" +
-                    "t" +
-                    "<'bottom'ip>",
+//		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#mytool'>>" +
+//                    "t" +
+//                    "<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
@@ -155,7 +155,7 @@ function initReporTable(tableData) {
 				data: 'rank'
 			}, {
 				data: 'issueCategory', 
-				width: '50'
+//				width: '50'
 			}, {
 				data: 'issue'
 			}, {
@@ -166,7 +166,7 @@ function initReporTable(tableData) {
 				data: 'pvReplies'
 			}, {
 				data: 'postDate', 
-				width: '100'
+//				width: '100'
 			}, {
 				data: 'site'
 			}, {
@@ -181,7 +181,7 @@ function initReporTable(tableData) {
 			}
 		], 
 		initComplete: function() {
-			$("#mytool").append('<a>Download</a>');
+//			$("#mytool").append('<a>Download</a>');
 		}
 	});
 }
@@ -361,11 +361,11 @@ function init_dg_issuecategory(data) {
 			avoidLabelOverlap: true,
 			label: {
 				normal: {
-					show: true,
-					position: 'inner'
+					show: true
+					//position: 'inner'
 				},
 				emphasis: {
-					show: false,
+					show: true,
 					textStyle: {
 						fontSize: '30',
 						fontWeight: 'bold'
@@ -374,7 +374,7 @@ function init_dg_issuecategory(data) {
 			},
 			labelLine: {
 				normal: {
-					show: false
+					show: true
 				}
 			},
 			data: pairs

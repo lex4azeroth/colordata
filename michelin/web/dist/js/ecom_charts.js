@@ -76,19 +76,19 @@ function init_ecom_tuhu(dateRange) {
 
 	$('#tuhuTable').DataTable({
 		"bDestroy": true,
-		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#tuHuTool'>>" +
-			"t" +
-			"<'bottom'ip>",
+		//sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#tuHuTool'>>" +
+		//	"t" +
+		//	"<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
 		data: tableData,
 		columns: [{
 			data: 'store',
-			width: '200'
+		//	width: '200'
 		}, {
 			data: 'productLine',
-			width: '100'
+		//	width: '100'
 		}, {
 			data: 'productName', 
 			render: function(data, type, row) {
@@ -98,19 +98,19 @@ function init_ecom_tuhu(dateRange) {
 			data: 'userName'
 		}, {
 			data: 'score', 
-			width: '50'
+		//	width: '50'
 		}, {
 			data: 'comment'
 		}, {
 			data: 'postTime', 
-			width: '70'
+		//	width: '70'
 			//render: function (data, type, row) {
 			//	var indexOfPoint = data.indexOf('.');
 			//	return data.substring(0, indexOfPoint);
 			//}
 		}], 
 		initComplete: function() {
-			$("#tuHuTool").append('<a>Download</a>');
+		//	$("#tuHuTool").append('<a>Download</a>');
 		}
 	});
 }
@@ -131,21 +131,21 @@ function init_ecom_tmall(dateRange) {
 	});
 
 	$('#tmallTable').DataTable({
-		"bPaginate": true, 
+		//"bPaginate": true, 
 		"bDestroy": true,
-		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#tmallTool'>>" +
-			"t" +
-			"<'bottom'ip>",
+		//sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#tmallTool'>>" +
+		//	"t" +
+		//	"<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
 		data: tableData,
 		columns: [{
 			data: 'store',
-			width: '200'
+		//	width: '200'
 		}, {
 			data: 'productLine',
-			width: '100'
+		//	width: '100'
 		}, {
 			data: 'productName', 
 			render: function(data, type, row) {
@@ -155,12 +155,12 @@ function init_ecom_tmall(dateRange) {
 			data: 'userName'
 		}, {
 			data: 'score', 
-			width: '50'
+		//	width: '50'
 		}, {
 			data: 'comment'
 		}, {
 			data: 'postTime', 
-			width: '70'
+		//	width: '70'
 			//render: function (data, type, row) {
 			//	var indexOfPoint = data.indexOf('.');
 			//	return data.substring(0, indexOfPoint);
@@ -199,10 +199,10 @@ function init_ecom_jd(dateRange) {
 		data: tableData,
 		columns: [{
 			data: 'store',
-			width: '200'
+		//	width: '200'
 		}, {
 			data: 'productLine',
-			width: '100'
+		//	width: '100'
 		}, {
 			data: 'productName', 
 			render: function(data, type, row) {
@@ -212,12 +212,12 @@ function init_ecom_jd(dateRange) {
 			data: 'userName'
 		}, {
 			data: 'score', 
-			width: '50'
+		//	width: '50'
 		}, {
 			data: 'comment'
 		}, {
 			data: 'postTime',
-			width: '70'
+		//	width: '70'
 			//render: function (data, type, row) {
 			//	var indexOfPoint = data.indexOf('.');
 			//	return data.substring(0, indexOfPoint);

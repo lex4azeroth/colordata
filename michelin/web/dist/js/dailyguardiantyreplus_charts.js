@@ -117,9 +117,9 @@ function initReporTable_tyreplus(tableData) {
 //		sDom: '<"top"iflp<"clear">>rt<"bottom"ilp<"clear">>'
 		"bDestroy": true,
 //		sDom: '<"top"f<"clear">>rt<"bottom"ip<"clear">>',
-		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#mytool'>>" +
-                    "t" +
-                    "<'bottom'ip>",
+//		sDom: "<'col-xs-4'><'col-xs-4'><'top'<'col-xs-3'f><'#mytool'>>" +
+//                    "t" +
+//                    "<'bottom'ip>",
 		aaSorting: [
 			[0, 'asc']
 		],
@@ -129,7 +129,7 @@ function initReporTable_tyreplus(tableData) {
 				data: 'rank'
 			}, {
 				data: 'issueCategory', 
-				width: '50'
+//				width: '50'
 			}, 
 			   {
 				data: 'grade'
@@ -137,7 +137,7 @@ function initReporTable_tyreplus(tableData) {
 				data: 'pvReplies'
 			}, {
 				data: 'postDate', 
-				width: '100'
+//				width: '100'
 			}, {
 				data: 'site'
 			}, {
@@ -152,7 +152,7 @@ function initReporTable_tyreplus(tableData) {
 			}
 		], 
 		initComplete: function() {
-			$("#mytool").append('<a>Download</a>');
+//			$("#mytool").append('<a>Download</a>');
 		}
 	});
 }
@@ -176,7 +176,7 @@ function init_dg_report_tyreplus(data) {
 		}
 	});
 	
-	initReporTable(tableData);
+	initReporTable_tyreplus(tableData);
 }
 
 /*
@@ -323,11 +323,11 @@ function init_dg_issuecategory_tyreplus(data) {
 			avoidLabelOverlap: true,
 			label: {
 				normal: {
-					show: true,
-					position: 'inner'
+					show: true
+					
 				},
 				emphasis: {
-					show: false,
+					show: true,
 					textStyle: {
 						fontSize: '30',
 						fontWeight: 'bold'
@@ -336,7 +336,7 @@ function init_dg_issuecategory_tyreplus(data) {
 			},
 			labelLine: {
 				normal: {
-					show: false
+					show: true
 				}
 			},
 			data: pairs
@@ -567,7 +567,9 @@ function init_dg_weeklyissuetrend_tyreplus(data) {
 			data: dates
 		}],
 		yAxis: [{
-			type: 'value'
+			type: 'value',
+			show: false
+		
 		}],
 		series: [{
 			name: 'Negative Issue',
