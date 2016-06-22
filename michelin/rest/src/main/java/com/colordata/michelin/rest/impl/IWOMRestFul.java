@@ -249,12 +249,12 @@ public class IWOMRestFul {
 			c.setDate(3, Date.valueOf(end));
 			c.setInt(4, Integer.valueOf(channel));
 			if (platform.equals("undefined")) {
-				c.setInt(5, Integer.valueOf(null));
+				c.setInt(5, -1);
 			} else {
 				c.setInt(5, Integer.valueOf(platform));
 			}
 			if (product.equals("undefined")) {
-				c.setInt(6, Integer.valueOf(null));
+				c.setInt(6, -1);
 			} else {
 				c.setInt(6, Integer.valueOf(product));
 			}
@@ -299,12 +299,12 @@ public class IWOMRestFul {
 			c.setDate(3, Date.valueOf(end));
 			c.setInt(4, Integer.valueOf(channel));
 			if (platform.equals("undefined")) {
-				c.setInt(5, Integer.valueOf(null));
+				c.setInt(5, -1);
 			} else {
 				c.setInt(5, Integer.valueOf(platform));
 			}
 			if (product.equals("undefined")) {
-				c.setInt(6, Integer.valueOf(null));
+				c.setInt(6, -1);
 			} else {
 				c.setInt(6, Integer.valueOf(product));
 			}
@@ -350,12 +350,12 @@ public class IWOMRestFul {
 			c.setInt(4, Integer.valueOf(channel));
 			if (platform.equals("undefined")) {
 				// TODO, this is not right
-				c.setInt(5, Integer.valueOf(null));
+				c.setInt(5, -1);
 			} else {
 				c.setInt(5, Integer.valueOf(platform));
 			}
 			if (product.equals("undefined")) {
-				c.setInt(6, Integer.valueOf(null));
+				c.setInt(6, -1);
 			} else {
 				c.setInt(6, Integer.valueOf(product));
 			}
@@ -400,12 +400,12 @@ public class IWOMRestFul {
 			c.setDate(3, Date.valueOf(end));
 			c.setInt(4, Integer.valueOf(channel));
 			if (platform.equals("undefined")) {
-				c.setInt(5, Integer.valueOf(null));
+				c.setInt(5, -1);
 			} else {
 				c.setInt(5, Integer.valueOf(platform));
 			}
 			if (product.equals("undefined")) {
-				c.setInt(6, Integer.valueOf(null));
+				c.setInt(6, -1);
 			} else {
 				c.setInt(6, Integer.valueOf(product));
 			}
@@ -450,12 +450,12 @@ public class IWOMRestFul {
 			c.setDate(3, Date.valueOf(end));
 			c.setInt(4, Integer.valueOf(channel));
 			if (platform.equals("undefined")) {
-				c.setInt(5, Integer.valueOf(null));
+				c.setInt(5, -1);
 			} else {
 				c.setInt(5, Integer.valueOf(platform));
 			}
 			if (product.equals("undefined")) {
-				c.setInt(6, Integer.valueOf(null));
+				c.setInt(6, -1);
 			} else {
 				c.setInt(6, Integer.valueOf(product));
 			}
