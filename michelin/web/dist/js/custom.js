@@ -58,6 +58,7 @@ function dataRangePicker() {
 		} else if (currentPageId == 'iwom') {
 //			loadIWOM();
 			loadAllBuzzs();
+			loadBuzzsAndOthers();
 		} else if (currentPageId == 'dailyguardian_tyreplus') {			
 			loadDailyGuardian_tyreplus();
 		} else if (currentPageId == 'iwom_tyreplus') {
