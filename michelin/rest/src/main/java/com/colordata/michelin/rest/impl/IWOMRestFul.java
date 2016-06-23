@@ -23,6 +23,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.colordata.michelin.rest.model.BuzzTrend;
 import com.colordata.michelin.rest.model.IWOMPostRecords;
+import com.colordata.michelin.rest.model.IWOMTopic;
 import com.colordata.michelin.rest.model.NSRTrend;
 import com.colordata.michelin.rest.model.RecordTrend;
 import com.colordata.michelin.rest.model.ValueNamePair;
@@ -280,7 +281,7 @@ public class IWOMRestFul {
 	@GET
 	@Path("topic/{department}/{channel}/{product}/{platform}/{topic}/{sentiment}/{start}/{end}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<ValueNamePair> getWOMTopic(
+	public IWOMTopic getWOMTopic(
 			@PathParam("department") String department, 
 			@PathParam("channel") String channel, 
 			@PathParam("product") String product, 
@@ -289,7 +290,9 @@ public class IWOMRestFul {
 			@PathParam("sentiment") String sentiment, 
 			@PathParam("start") String start, 
 			@PathParam("end") String end) {
-		List<ValueNamePair> pairs = new ArrayList<ValueNamePair>();
+		IWOMTopic topics = new IWOMTopic();
+		List<String> names = new ArrayList<String>();
+		List<Integer> counts = new ArrayList<Integer>();
 		Connection conn = SqlServerConnectionService.getConn();
 		System.out.println("getIWOMTopicChart");
 		try {
@@ -314,17 +317,18 @@ public class IWOMRestFul {
 			ResultSet rs = c.executeQuery();
 			
 			while (rs.next()) {
-				ValueNamePair pair = new ValueNamePair();
-				pair.setName(rs.getString("TopicAngleName"));
-				pair.setValue(rs.getInt("Count"));
-				pairs.add(pair);
+				names.add(rs.getString("TopicAngleName"));
+				counts.add(rs.getInt("Count"));
 			}
+			
+			topics.setNames(names);
+			topics.setCounts(counts);
 			
 		} catch (SQLException ex) {
 			System.out.println(ex.toString());
 		}
 		
-		return pairs;				
+		return topics;				
 	}
 
 	@GET
