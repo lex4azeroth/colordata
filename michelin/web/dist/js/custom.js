@@ -50,19 +50,20 @@ function dataRangePicker() {
 		var dateRange = $("#daterange-btn span").html();
 
 		var currentPageId = $('#container').find('div').attr('id');
-
+		
+		// TO keep the selected value of date range picker, just refresh the charts based on each page by id.
 		if (currentPageId == "dailyguardian") {
 			loadDailyGuardian();
 		} else if (currentPageId == 'DailyHotTopic') {
 			loadDailyHotTopicCharts();
 		} else if (currentPageId == 'iwom') {
-//			loadIWOM();
 			loadAllBuzzs();
 			loadBuzzsAndOthers();
 		} else if (currentPageId == 'dailyguardian_tyreplus') {			
 			loadDailyGuardian_tyreplus();
 		} else if (currentPageId == 'iwom_tyreplus') {
-			loadIWOM_tyreplus();
+			loadAllBuzzsTyreplus();
+			loadBuzzsAndOthers();
 		} else if (currentPageId == 'Ecommerce') {
 			loadECommerceCharts();
 		}
@@ -74,7 +75,7 @@ function refreshProduct() {
 	$("#echart_K1BuzzNSRTopic2").addClass("active");
 	$("#echart_K1BuzzNSRTopic1").removeClass("active");
 	init_product_trends(data);
-	currentTab = "product";
+	currentTab = "product"; // persists the current tab
 }
 
 function refreshBrand() {
@@ -82,15 +83,20 @@ function refreshBrand() {
 	$("#echart_K1BuzzNSRTopic1").addClass("active");
 	$("#echart_K1BuzzNSRTopic2").removeClass("active");
 	init_brand_trends(data);
-	currentTab = "brand";
+	currentTab = "brand"; // persists the current tab
 }
 
 function loadAllBuzzs() {
-	if (currentTab == "brand") {
+	if (currentTab == "brand") { // switch between "Brand" and "Product" tabs
 		refreshBrand();
 	} else {
 		refreshProduct();
 	}
+}
+
+function loadAllBuzzsTyreplus() {
+	var data = getCurrentDateRange();
+	init_brand_trends(data);
 }
 
 function loadBuzzsAndOthers() {
@@ -99,12 +105,16 @@ function loadBuzzsAndOthers() {
 	init_word_cloud_p(data);
 	init_topic(data);
 	init_channel(data);
-	init_online_topic_records(data);
+	if ($('#container').find('div').attr('id') == "iwom") {
+		init_online_topic_records(data);
+	} else {
+		init_online_topic_records_tyreplus(data);
+	}
+	
 }
 
 function loadIWOM() {
 	$("#container").load("pages/iWOM.html #iwom", null, function() {
-		// echart K1BuzzNSRTopic
 		dataRangePicker();
 
 		$("#loadDG").removeClass("active");
@@ -171,7 +181,6 @@ function loadDailyGuardian_tyreplusPage() {
 	
 	});
 }
-
 
 function loadDailyGuardian_tyreplus(){
 		var data = getCurrentDateRange();
@@ -245,10 +254,6 @@ function loadDailyHotTopic() {
 	});
 }
 
-function loadIWOM_tyreplus_page() {
-	var data = getCurrentDateRange();
-	init_trend_tyreplus(data);
-}
 function loadIWOM_tyreplus() {
 	$("#container").load("pages/IWOM_TyrePlus.html #iwom_tyreplus", null, function() {
 		// echart K1BuzzNSRTopic
@@ -261,10 +266,11 @@ function loadIWOM_tyreplus() {
 		$("#loadIWOM_T").addClass("active");
 		$("#loadE_T").removeClass("active");
 		
-		bindIWOMTyrePlusFilters();
-		loadIWOM_tyreplus_page();
+		bindIWOMFilters();
+		
+		loadAllBuzzsTyreplus();
+		loadBuzzsAndOthers();
 });
-
 }
 
 function createRandomItemStyle() {

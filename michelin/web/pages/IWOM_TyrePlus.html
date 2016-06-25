@@ -1,129 +1,235 @@
-﻿  <div class="full-content-wrapper" id="iwom_tyreplus">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h2>
+﻿<div class="full-content-wrapper" id="iwom_tyreplus">
+	<!-- Content Header (Page header) -->
+	<section class="content-header">
+		<h2>
         Michelin IWOM
         <small></small>
       </h2>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">IWOM</li>
-      </ol>
-    </section>
-    
-    <section class="full-content-header">
-      <div class="box box-default">
-        <div class="box-header with-border">
-          <h3 class="box-title">Filter</h3>
-        <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Issue Grade</label>
-                <select id="IWOMTyreplusIssueGrade" class="form-control select2" style="width: 100%;">
-                  <!--<option selected="selected">1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>-->
-                  
+		<ol class="breadcrumb">
+			<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+			<li class="active">IWOM</li>
+		</ol>
+	</section>
+	<section class="full-content-header">
+		<div class="box box-primary">
+			<div class="box-header with-border">
+				<h3 class="box-title">Filter</h3>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<div class="row">
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Brand</label>
+								<select id="brand" class="form-control select2" style="width: 100%;">
+                
                 </select>
-              </div>
-              <!-- /.form-group -->
-          <div class="form-group">
-                <label>Channel</label>
-                <select id="IWOMTyreplusChannel" class="form-control select2" style="width: 100%;">
-                  <!--<option selected="selected">BBS</option>-->
-                  <!--<option>Weibo</option>
-                  <option>Wechat</option>
-                  <option>ComplantSites</option>
-                  <option>News</option>
-                  <option>VideoSites</option>-->
-                </select>
-              </div>
-              <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-            <div class="form-group">
-                <label>Issue Catrgory</label>
-                <select id="IWOMTyreplusCategory" class="form-control select2" style="width: 100%;">
-                  <!--<option selected="selected">Restaurant</option>
-                  <option>Product</option>-->
-                  
-                </select>
-              </div>
-              <!-- /.form-group -->
-          
-          <!--daterange-->
-          
-          <div class="form-group">
+							</div>
+							<!-- /.form-group -->
+							<div class="form-group">
+								<label>Sentiment</label>
+								<select id="sentiment" class="form-control select2" style="width: 100%;">
                
-                <label>Date Range:</label>
+                </select>
+							</div>
+						</div>
+						<!-- /.col -->
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Channel</label>
+								<select id="channel" class="form-control select2" style="width: 100%;">
+                </select>
+							</div>
 
-                <div class="input-group">
-                  <button type="button" class="btn btn-default pull-right" id="daterange-btn">
+							<div class="form-group">
+								<label>Platform</label>
+								<select id="platform" class="form-control select2" style="width: 100%;">
+                  				</select>
+							</div>
+
+						</div>
+
+						<div class="col-md-3">
+							<div class="form-group">
+								<label>Topic</label>
+								<select id="topic" class="form-control select2" style="width: 100%;">
+                      <!--<option selected="selected">Restaurant</option>
+                      <option>Product</option>-->
+                      
+                    </select>
+							</div>
+							<div class="form-group">
+								<label>Date Range:</label>
+
+								<div class="input-group">
+									<button type="button" class="btn btn-default pull-right" id="daterange-btn">
                     <span>
                       <i class="fa fa-calendar"></i> Date range picker
                     </span>
                     <i class="fa fa-caret-down"></i>
                   </button>
-                </div>
-             </div>
-          
-          
-              <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-          </div>
-          <!-- /.row -->
-        </div>
-      
-      </div> 
-   
-            
-          </section>
+								</div>
+							</div>
 
-    <!-- Main content -->
-    <section class="content">
-      <!-- Small boxes (Stat box) -->
-      <div class="row">
-      </div>
+						</div>
 
-      <!-- /.row -->
-      <!-- Main row -->
-      <div class="row">
-        <!-- Left col -->
-        <section class="col-lg-12 connectedSortable">
-          <!-- Custom tabs (Charts with tabs)-->
-          
-          <!--echart: weekly issue trend -->
-           <div class="box box-primary">
-              <div class="box-header with-border">
-                <h3 class="box-title">K1BuzzNSRTopic</h3>
+						<!-- /.col -->
+					</div>
+					<!-- /.row -->
+				</div>
+			</div>
+		</div>
+	</section>
 
-                <div class="box-tools pull-right">
-                  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+	<!-- Main content -->
+	<section class="content">
+		<!-- Small boxes (Stat box) -->
+		<div class="row">
+		</div>
+
+		<!-- /.row -->
+		<!-- Main row -->
+		<div class="row">
+			<!-- Left col -->
+			<section class="col-lg-12 connectedSortable">
+				<!-- Custom tabs (Charts with tabs)-->
+
+				<!--echart: weekly issue trend -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">K1BuzzNSRTopic</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                   </button>
-                  <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-              </div>
-              <div class="box-body">
-                <div class="chart">
-                    <div id="echart_K1BuzzNSRTopic1" style="height:430px"></div>
-                   
-                    <div id="echart_K1BuzzNSRTopic2" style="height:430px"></div>
-                <!-- <canvas id="barChart" style="height:230px"></canvas>-->
-                </div>
-              </div>
-          </div>
-        </section>
- 
-        </div>
-      
-      
-      
-    </section>
-    <!-- /.content -->
-  </div>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_main1" style="height:430px"></div>
+							<div id="echart_main2" style="height:430px"></div>
+							<!--<div id="echart_K1BuzzNSRTopic1" style="height:430px"></div>
+							<div id="echart_K1BuzzNSRTopic2" style="height:430px"></div>-->
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="col-lg-6 connectedSortable">
+
+				<!--echart:channel-->
+				<!-- /.Left col -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Channel</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                      </button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_channel" style="height:230px"></div>
+						</div>
+					</div>
+				</div>
+
+				<!--echart:issue platform-->
+				<!-- /.Left col -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Positive Word Cloud</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                      </button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="wordcloud_p" style="height:230px"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="col-lg-6 connectedSortable">
+
+				<!--echart:issue platform-->
+				<!-- /.Left col -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Topic</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="echart_topic" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
+
+				<!--echart:issue platform-->
+				<!-- /.Left col -->
+				<div class="box box-primary">
+					<div class="box-header with-border">
+						<h3 class="box-title">Negative Word Cloud</h3>
+
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                  </button>
+							<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+						</div>
+					</div>
+					<div class="box-body">
+						<div class="chart">
+							<div id="wordcloud_n" style="height:230px"></div>
+							<!-- <canvas id="barChart" style="height:230px"></canvas>-->
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="col-lg-12 connectedSortable">
+				<div class="box box-primary">
+					<div class="box-header">
+						<h3 class="box-title">Tyreplus Engineer Online Topic Posts-Knowledge sharing Posts</h3>
+
+						<!-- /.box-header -->
+						<div class="box-body table-responsive no-padding">
+							<!--<table class="table table-hover">-->
+							<table id="iwompostedrecords" class="table table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Channel</th>
+										<th>BBS Platform</th>
+										<!--		<th>Michelin Product</th> -->
+										<th>Title</th>
+										<th>Content</th>
+										<th>Post Date</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<!-- /.box-body -->
+					</div>
+				</div>
+				<!-- /.box -->
+
+			</section>
+
+		</div>
+
+	</section>
+	<!-- /.content -->
+</div>

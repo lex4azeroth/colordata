@@ -106,7 +106,7 @@ function bindIWOMFilters() {
 	var topics = [];
 	$.ajax({
 		type: "GET",
-		url: iwomFilterBaseURL + "discussiontopic",
+		url: iwomFilterBaseURL + "discussiontopic/" + $('#container').find('div').attr('id'),
 		async: false,
 		dataType: "json",
 		success: function(returnValue) {
