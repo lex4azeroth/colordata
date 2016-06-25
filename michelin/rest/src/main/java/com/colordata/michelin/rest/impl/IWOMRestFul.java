@@ -33,6 +33,16 @@ import com.colordata.michelin.rest.model.ValueNamePair;
 @RequestScoped
 @Stateful
 public class IWOMRestFul {
+	
+	private int getDepartmentId(String pageId) {
+		int departmentId = 1; // default value as 1.
+		
+		if (pageId.equals("iwom_tyreplus")) {
+			departmentId = 2;
+		}
+		
+		return departmentId;
+	}
 
 	@GET
 	@Path("nsrtrend/{department}/{tab}/{start}/{end}")
@@ -50,7 +60,7 @@ public class IWOMRestFul {
 		System.out.println("getIWOMNSRTrendChart");
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getiWoMOnlineBuzzOverviewNSRTrend(?,?,?,?) }");
-			c.setInt(1, Integer.valueOf(department));
+			c.setInt(1, getDepartmentId(department));
 			c.setInt(2, Integer.valueOf(tab));
 			c.setDate(3, Date.valueOf(start));
 			c.setDate(4, Date.valueOf(end));
@@ -176,7 +186,7 @@ public class IWOMRestFul {
 		System.out.println("getIWOMBuzzTrendChart");
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getiWoMOnlineBuzzOverviewBuzzTrend(?,?,?,?) }");
-			c.setInt(1, Integer.valueOf(department));
+			c.setInt(1, getDepartmentId(department));
 			c.setInt(2, Integer.valueOf(tab));
 			c.setDate(3, Date.valueOf(start));
 			c.setDate(4, Date.valueOf(end));
@@ -245,7 +255,7 @@ public class IWOMRestFul {
 		System.out.println("getIWOMChannelChart");
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getiWoMBuzzChannelDistribution(?,?,?,?,?,?,?,?) }");
-			c.setInt(1, Integer.valueOf(department));
+			c.setInt(1, getDepartmentId(department));
 			c.setDate(2, Date.valueOf(start));
 			c.setDate(3, Date.valueOf(end));
 			c.setInt(4, Integer.valueOf(channel));
@@ -297,7 +307,7 @@ public class IWOMRestFul {
 		System.out.println("getIWOMTopicChart");
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getiWoMBuzzDiscussionTopicDistribution(?,?,?,?,?,?,?,?) }");
-			c.setInt(1, Integer.valueOf(department));
+			c.setInt(1, getDepartmentId(department));
 			c.setDate(2, Date.valueOf(start));
 			c.setDate(3, Date.valueOf(end));
 			c.setInt(4, Integer.valueOf(channel));
@@ -348,7 +358,7 @@ public class IWOMRestFul {
 		System.out.println("getIWOMPostiveWordCloudChart");
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getiWoMBuzzPositiveWordCloud(?,?,?,?,?,?,?,?) }");
-			c.setInt(1, Integer.valueOf(department)); // department id
+			c.setInt(1, getDepartmentId(department)); // department id
 			c.setDate(2, Date.valueOf(start));
 			c.setDate(3, Date.valueOf(end));
 			c.setInt(4, Integer.valueOf(channel));
@@ -399,7 +409,7 @@ public class IWOMRestFul {
 		System.out.println("getIWOMNegativeWorldCloudChart");
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getiWoMBuzzNegativeWordCloud(?,?,?,?,?,?,?,?) }");
-			c.setInt(1, Integer.valueOf(department)); // department id
+			c.setInt(1, getDepartmentId(department)); // department id
 			c.setDate(2, Date.valueOf(start));
 			c.setDate(3, Date.valueOf(end));
 			c.setInt(4, Integer.valueOf(channel));
@@ -449,7 +459,7 @@ public class IWOMRestFul {
 		System.out.println("getIWOMTopicPostReocrdsChart");
 		try {
 			CallableStatement c = conn.prepareCall("{call mi.getiWoMBuzzOnlineTopicPostsRecords(?,?,?,?,?,?,?,?) }");
-			c.setInt(1, Integer.valueOf(department)); // department id
+			c.setInt(1, getDepartmentId(department)); // department id
 			c.setDate(2, Date.valueOf(start));
 			c.setDate(3, Date.valueOf(end));
 			c.setInt(4, Integer.valueOf(channel));
@@ -473,7 +483,9 @@ public class IWOMRestFul {
 				record.setId(rs.getInt("ID"));
 				record.setChannel(rs.getString("Channel"));
 				record.setPlatform(rs.getString("BBS Platform"));
-				record.setProduct(rs.getString("Michelin Product"));
+				if (getDepartmentId(department) == 1) {
+					record.setProduct(rs.getString("Michelin Product"));
+				}
 				record.setTitle(rs.getString("Title"));
 				record.setContent(rs.getString("Content"));
 				record.setPostDate(rs.getString("PostDate"));

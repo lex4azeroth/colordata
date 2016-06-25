@@ -2,6 +2,7 @@ package com.colordata.michelin.rest.impl;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -133,14 +134,22 @@ public class IWOMFilterRestFul {
 	}
 	
 	@GET
-	@Path("discussiontopic")
+	@Path("discussiontopic/{pageid}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<DiscussionTopic> getDiscussionTopic() {
+	public List<DiscussionTopic> getDiscussionTopic(@PathParam("pageid") String pageId) {
 		List<DiscussionTopic> discussionTopics = new ArrayList<DiscussionTopic>();
 		Connection conn = SqlServerConnectionService.getConn();
 		System.out.println("getIWOMDiscussionTopics");
 		try {
-			CallableStatement c = conn.prepareCall("{call mi.getiWoMDiscussionTopic() }");
+			CallableStatement c = conn.prepareCall("{call mi.getiWoMDiscussionTopic(?) }");
+			if (pageId.equals("iwom")) {
+				c.setInt(1, Integer.valueOf(1)); 
+			} else if (pageId.equals("iwom_tyreplus")) {
+				c.setInt(1, Integer.valueOf(2));
+			} else {
+				c.setInt(1, Integer.valueOf(1)); // for invalid inputs, just use default department id : (1).
+			}
+			
 			ResultSet rs = c.executeQuery();
 			
 			while (rs.next()) {
